@@ -8,17 +8,16 @@ public class Sistema {
         
     
     public void inicializar(){
-        Livro livroVBSA = new Livro("VBSAUK", "Vermelho, Branco e Sangue Azul", "Casey MCQuinston", "Relações "
+        Livro livroVBSA = new Livro("VBSAUK", "Vermelho, Branco e Sangue Azul", "Casey MCQuinston", "Romance", "Relações "
                 + "internacionais entre o príncipe da Inglaterra e o filho da presidenta dos Estados Unidos.", 10, 2019);
         livros.add(livroVBSA);
-        Livro livroUltimaParada = new Livro("ULTPARAD", "Última Parada", "Casey MCQuinston", "Jovem "
+        Livro livroUltimaParada = new Livro("ULTPARAD", "Última Parada", "Romance", "Casey MCQuinston", "Jovem "
                 + "adulta tem crise existencial em um metrô e encontra o amor da sua vida: uma garota badass.", 5, 2021);
         livros.add(livroUltimaParada);
-        Livro livroHeartStopper = new Livro("HRSTP", "Heartstopper", "Alice Oseman", "Dois garotos apaixonados descobrem "
+        Livro livroHeartStopper = new Livro("HRSTP", "Heartstopper", "Romance", "Alice Oseman", "Dois garotos apaixonados descobrem "
                 + "as nuâncias da sexualidade, do amor e do afeto.", 5, 2019);
         livros.add(livroHeartStopper);
-        
-        String novoLivroID, novoLivroNome;
+ 
         int opcaoMenu;
         Scanner lerSistema = new Scanner(System.in);
         
@@ -27,24 +26,22 @@ public class Sistema {
         opcaoMenu = lerSistema.nextInt();
         switch(opcaoMenu){
             case 1:
-                cadastrarLivro(livros);
+                cadastrarLivro();
                 break;
             case 2:
-                cadastrarUsuario(usuarios);
+                cadastrarUsuario();
                 break;
             case 3:
-                efetuarLogin(usuarios, livros);
+                efetuarLogin();
                 break;
             default:
                 System.out.println("Escolha uma opção válida!");
                 System.exit(0);
                 break;
         }
-        
-        
     }
     
-    public void cadastrarLivro(ArrayList livros){
+    public void cadastrarLivro(){
         int escolhaContinuar;
         do{
             Livro livroNovo = new Livro();
@@ -55,12 +52,12 @@ public class Sistema {
         while(escolhaContinuar==1);
     }
     
-    public void cadastrarUsuario(ArrayList usuarios){
+    public void cadastrarUsuario(){
         Usuario novoUsuario = new Usuario();
         usuarios.add(novoUsuario);
     }
     
-    public void efetuarLogin(ArrayList usuarios, ArrayList livros){
+    public void efetuarLogin(){
         String livroEmprestimo, livroReserva;
         int opcaoAcaoLogin;
         
@@ -84,7 +81,7 @@ public class Sistema {
                             System.out.println("Insira o ID do livro que deseja realizar o empréstimo: ");
                             livroEmprestimo = lerMain.next();
                             for(int j=0; j<livros.size(); j++){
-                                emprestimo(senhaVerifica, livroEmprestimo, livros, usuarios, livros.get(j).getExemplares());
+                                emprestimo(senhaVerifica, livroEmprestimo);
                             }
                         }
                         break;
@@ -97,7 +94,7 @@ public class Sistema {
                             System.out.println("Insira o ID do livro que deseja realizar a reserva: ");
                             livroReserva = lerMain.next();
                             for(int j=0; j<livros.size(); j++){
-                                reserva(senhaVerifica, livroReserva, livros, usuarios, livros.get(j).getExemplares());
+                                reserva(senhaVerifica, livroReserva);
                             }
                         }
                         break;
@@ -111,15 +108,15 @@ public class Sistema {
         }
     }
     
-    public void emprestimo(String senhaVerifica, String livroEmprestimo, ArrayList livros, ArrayList usuarios, ArrayList exemplares){
+    public void emprestimo(String senhaVerifica, String livroEmprestimo){
         for(int i=0; i<livros.size(); i++){
             if(livroEmprestimo.equalsIgnoreCase(livros.get(i).getIDLivro())){
                 for(int j=0; j<usuarios.size(); j++){
-                    if(senhaVerifica.equalsIgnoreCase(usuarios.get(i).getSenha())){
-                        for(int y=0; y<exemplares.size(); y++){
-                            if(exemplares.get(y).getEmprestado() == false){
+                    if(senhaVerifica.equalsIgnoreCase(usuarios.get(j).getSenha())){
+                        for(int y=0; y<livros.get(i).getExemplares().size(); y++){
+                            if(livros.get(i).getExemplares().get(y).getEmprestado() == false){
                                 System.out.println("Empréstimo realizado.");
-                                exemplares.get(y).setEmprestado(true);
+                                livros.get(i).getExemplares().get(y).setEmprestado(true);
                             }
                             else{
                                 System.out.println("Todos os exemplares estão atualmente emprestados!");
@@ -137,15 +134,15 @@ public class Sistema {
         }
     }
     
-    public void reserva(String senhaVerifica, String livroReserva, ArrayList livros, ArrayList usuarios, ArrayList exemplares){
+    public void reserva(String senhaVerifica, String livroReserva){
         for(int i=0; i<livros.size(); i++){
             if(livroReserva.equalsIgnoreCase(livros.get(i).getIDLivro())){
                 for(int j=0; j<usuarios.size(); j++){
                     if(senhaVerifica.equalsIgnoreCase(usuarios.get(i).getSenha())){
-                        for(int y=0; y<exemplares.size(); y++){
-                            if(exemplares.get(y).getReservado() == false){
+                        for(int y=0; y<livros.get(i).getExemplares().size(); y++){
+                            if(livros.get(i).getExemplares().get(y).getReservado() == false){
                                 System.out.println("Reserva realizada.");
-                                exemplares.get(y).setReservado(true);
+                                livros.get(i).getExemplares().get(y).setReservado(true);
                             }
                             else{
                                 System.out.println("Todos os exemplares estão atualmente reservados!");
@@ -169,4 +166,31 @@ public class Sistema {
         return estrelasAva;
     }
     
+    public void pesquisarLivroTitulo(String livroPesquisaTitulo){
+        for(int i = 0; i<livros.size(); i++){
+            if(livroPesquisaTitulo.equalsIgnoreCase(livros.get(i).getTitulo())){
+                System.out.println("Livro presente no acervo!");
+            }
+        }
+    }
+    
+    public void pesquisarLivroAutor(String livroPesquisaAutor){
+        for(int i = 0; i<livros.size(); i++){
+            if(livroPesquisaAutor.equalsIgnoreCase(livros.get(i).getAutor())){
+                System.out.println(livros.get(i).getTitulo());
+            }
+        }
+    }
+    
+    public void pesquisarLivroGenero(String livroPesquisaGenero){
+        for(int i = 0; i<livros.size(); i++){
+            if(livroPesquisaGenero.equalsIgnoreCase(livros.get(i).getGenero())){
+                System.out.println(livros.get(i).getTitulo());
+            }
+        }
+    }
+
+    public ArrayList<Livro> getLivros() {
+        return livros;
+    }
 }
