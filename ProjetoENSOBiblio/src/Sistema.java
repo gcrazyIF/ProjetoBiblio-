@@ -2,8 +2,9 @@ import java.util.*;
 
 public class Sistema {
     Scanner lerMain = new Scanner(System.in);
-    String emailVerifica, senhaVerifica;
+    private String emailVerifica, senhaVerifica;
     private float estrelasAva;
+    private int opcaoLoginPro;
     ArrayList<Livro> livros = new ArrayList<Livro>();
     ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 
@@ -39,7 +40,7 @@ public class Sistema {
         int anoPubli;
         Scanner lerLivro = new Scanner(System.in);
         do {
-            System.out.println("Insira o ID do livro: SEU PORRA ");
+            System.out.println("Insira o ID do livro: ");
             IDLivro = lerLivro.next();
 
             System.out.println("Insira o título do livro: ");

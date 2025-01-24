@@ -2,11 +2,12 @@ import java.util.*;
 public class Principal {
     public static void main(String Biblioteca[]){
         String livroPesquisaTitulo, livroPesquisaAutor, livroPesquisaGenero, novoLivroID, novoLivroNome;
-        int opcaoPrincipal;
+        int opcaoPrincipal, opcaoPrograma;
         Scanner lerPrincipal = new Scanner(System.in);
         Sistema sistema = new Sistema();
        
-        System.out.println("Seja bem-vind@! Escolha uma das opções abaixo:\n[1] PESQUISAR LIVRO POR TÍTULO"
+        do{
+            System.out.println("Seja bem-vind@! Escolha uma das opções abaixo:\n[1] PESQUISAR LIVRO POR TÍTULO"
                 + "\n[2] PESQUISAR LIVRO POR AUTOR\n[3] PESQUISAR LIVRO POR GÊNERO\n[4] CADASTRAR USUÁRIO\n"
                 + "[5] EFETUAR LOGIN\n[6] CATALOGAR NOVO LIVRO");
         opcaoPrincipal = lerPrincipal.nextInt();
@@ -19,6 +20,7 @@ public class Principal {
                 break;
             case 2:
                 System.out.println("Insira o autor do livro que deseja pesquisar: ");
+                livroPesquisaAutor = lerPrincipal.nextLine();
                 livroPesquisaAutor = lerPrincipal.nextLine();
                 sistema.pesquisarLivroAutor(livroPesquisaAutor);  
                 break;
@@ -41,5 +43,9 @@ public class Principal {
                 System.exit(0);
                 break;
         }
+            System.out.println("Deseja continuar usando o programa?\n[1] SIM\n[2] NÃO");
+            opcaoPrograma = lerPrincipal.nextInt();
+            }
+        while(opcaoPrograma==1);
     }
 }
