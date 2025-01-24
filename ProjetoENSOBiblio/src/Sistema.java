@@ -1,13 +1,11 @@
 import java.util.*;
 
-
 public class Sistema {
     Scanner lerMain = new Scanner(System.in);
     String emailVerifica, senhaVerifica;
     private float estrelasAva;
     ArrayList<Livro> livros = new ArrayList<Livro>();
     ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-
 
     public Sistema() {
 
@@ -16,11 +14,9 @@ public class Sistema {
                         + "internacionais entre o príncipe da Inglaterra e o filho da presidenta dos Estados Unidos.",
                 10, 2019);
 
-
         Livro livroUltimaParada = new Livro("ULTPARAD", "Última Parada", "Romance", "Casey MCQuinston", "Jovem "
                 + "adulta tem crise existencial em um metrô e encontra o amor da sua vida: uma garota badass.", 5,
                 2021);
-
 
         Livro livroHeartStopper = new Livro("HRSTP", "Heartstopper", "Romance", "Alice Oseman",
                 "Dois garotos apaixonados descobrem "
@@ -31,10 +27,8 @@ public class Sistema {
         livros.add(livroHeartStopper);
     }
 
-
     public void cadastrarLivro() {
         int escolhaContinuar;
-
 
         String IDLivro;
         String titulo;
@@ -48,28 +42,21 @@ public class Sistema {
             System.out.println("Insira o ID do livro: SEU PORRA ");
             IDLivro = lerLivro.next();
 
-
             System.out.println("Insira o título do livro: ");
             titulo = lerLivro.nextLine();
             titulo = lerLivro.nextLine();
 
-
             System.out.println("Insira o autor do livro: ");
             autor = lerLivro.nextLine();
-            autor = lerLivro.nextLine();
-
 
             System.out.println("Insira o gênero do livro: ");
             genero = lerLivro.nextLine();
 
-
             System.out.println("Insira a sinopse do livro: ");
             sinopse = lerLivro.nextLine();
 
-
             System.out.println("Quantos exemplares deste livro a biblioteca possui?");
             numExemplares = lerLivro.nextInt();
-
 
             System.out.println("Insira o ano de publicação do livro: ");
             anoPubli = lerLivro.nextInt();
@@ -92,14 +79,11 @@ public class Sistema {
         String livroEmprestimo, livroReserva;
         int opcaoAcaoLogin;
 
-
         System.out.println("Insira seu e-mail: ");
         emailVerifica = lerMain.next();
 
-
         System.out.println("Insira sua senha: ");
         senhaVerifica = lerMain.next();
-
 
         for (int i = 0; i < usuarios.size(); i++) {
             if (emailVerifica.equalsIgnoreCase(usuarios.get(i).getEmail())
@@ -142,7 +126,6 @@ public class Sistema {
         }
     }
 
-
     public void emprestimo(String senhaVerifica, String livroEmprestimo) {
         for (int i = 0; i < livros.size(); i++) {
             if (livroEmprestimo.equalsIgnoreCase(livros.get(i).getIDLivro())) {
@@ -165,7 +148,6 @@ public class Sistema {
             }
         }
     }
-
 
     public void reserva(String senhaVerifica, String livroReserva) {
         for (int i = 0; i < livros.size(); i++) {
@@ -190,13 +172,11 @@ public class Sistema {
         }
     }
 
-
     public float avaUsuario() {
         System.out.println("Quantas estrelas você dá para este livro?");
         estrelasAva = lerMain.nextFloat();
         return estrelasAva;
     }
-
 
     public void pesquisarLivroTitulo(String livroPesquisaTitulo) {
         for (int i = 0; i < livros.size(); i++) {
@@ -206,7 +186,6 @@ public class Sistema {
         }
     }
 
-
     public void pesquisarLivroAutor(String livroPesquisaAutor) {
         for (int i = 0; i < livros.size(); i++) {
             if (livroPesquisaAutor.equalsIgnoreCase(livros.get(i).getAutor())) {
@@ -215,7 +194,6 @@ public class Sistema {
         }
     }
 
-
     public void pesquisarLivroGenero(String livroPesquisaGenero) {
         for (int i = 0; i < livros.size(); i++) {
             if (livroPesquisaGenero.equalsIgnoreCase(livros.get(i).getGenero())) {
@@ -223,7 +201,6 @@ public class Sistema {
             }
         }
     }
-
 
     public ArrayList<Livro> getLivros() {
         return livros;
