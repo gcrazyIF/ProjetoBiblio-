@@ -31,6 +31,4 @@ import java.util.*;
         public void setReservado(boolean reservado) {
             this.reservado = reservado;
         }
-       
-       
 }
