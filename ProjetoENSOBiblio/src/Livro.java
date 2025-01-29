@@ -17,6 +17,14 @@ public class Livro {
         this.anoPubli = anoPubli;
     }
 
+    public void exibirLivro(){
+        System.out.println("ID: "+IDLivro);
+        System.out.println("Título: "+titulo);
+        System.out.println("Autor: "+autor);
+        System.out.println("Gênero: "+genero);
+        System.out.println("Ano de publicação: "+anoPubli);
+        System.out.println("Sinopse: "+sinopse);
+    }
 
     public String getIDLivro() {
         return IDLivro;
@@ -37,8 +45,19 @@ public class Livro {
         return autor;
     }
 
-
     public String getGenero() {
         return genero;
+    }
+
+    public String getSinopse() {
+        return sinopse;
+    }
+
+    public int getNumExemplares() {
+        return numExemplares;
+    }
+
+    public int getAnoPubli() {
+        return anoPubli;
     }
 }

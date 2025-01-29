@@ -33,7 +33,6 @@ import java.util.*;
             Exemplar exeHRSTP5 = new Exemplar("HRSTP", "Heartstopper", "Romance", "Alice Oseman", "Dois garotos apaixonados descobrem as nuâncias da sexualidade, do amor e do afeto.", 5, 2019, "HRSTP5", false, false);
         }
 
-
         public boolean getEmprestado() {
             return emprestado;
         }

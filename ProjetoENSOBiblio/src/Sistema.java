@@ -7,6 +7,7 @@ public class Sistema {
     private int opcaoLoginPro;
     ArrayList<Livro> livros = new ArrayList<Livro>();
     ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+    Usuario admin = new Usuario("0", "admin@gmail.com", "admin123", "(82)94002-8922", "ge", "980.567.323-12");
 
     public Sistema() {
 
@@ -75,9 +76,12 @@ public class Sistema {
         usuarios.add(novoUsuario);
     }
 
+    public void cadastrarAdmin(){
+        usuarios.add(admin);
+    }
 
     public void efetuarLogin() {
-        String livroEmprestimo, livroReserva;
+        String livroPesquisaTitulo, livroPesquisaAutor, livroPesquisaGenero, livroEmprestimo, livroReserva;
         int opcaoAcaoLogin;
 
         System.out.println("Insira seu e-mail: ");
@@ -87,11 +91,12 @@ public class Sistema {
         senhaVerifica = lerMain.next();
 
         for (int i = 0; i < usuarios.size(); i++) {
-            if (emailVerifica.equalsIgnoreCase(usuarios.get(i).getEmail())
-                    && senhaVerifica.equalsIgnoreCase(usuarios.get(i).getSenha())) {
+            if (emailVerifica.equalsIgnoreCase(usuarios.get(i).getEmail()) && senhaVerifica.equalsIgnoreCase(usuarios.get(i).getSenha())) {
                 System.out.println("Login efetuado com sucesso!");
                 System.out.println("Escolha uma ação para realizar\n[1] REALIZAR EMPRÉSTIMO\n[2] RENOVAR "
-                        + "EMPRÉSTIMO\n[3] RESERVAR EXEMPLARES\n[4] AVALIAR LIVROS\n[5] PESQUISAR LIVROS");
+                        + "EMPRÉSTIMO\n[3] RESERVAR EXEMPLARES\n[4] AVALIAR LIVROS\n[5] PESQUISAR LIVRO POR "
+                        + "TÍTULO\n[6] PESQUISAR LIVRO POR AUTOR\n[7] PESQUISAR LIVRO POR GÊNERO\n"
+                        + "[8] CATALOGAR NOVO LIVRO\n[9] CADASTRAR NOVO EXEMPLAR DE UM LIVRO");
                 opcaoAcaoLogin = lerMain.nextInt();
                 switch (opcaoAcaoLogin) {
                     case 1:
@@ -120,8 +125,42 @@ public class Sistema {
                         break;
                     case 4:
                         avaUsuario();
+                        break;
+                    case 5:
+                        System.out.println("Insira o título do livro que deseja pesquisar: ");
+                        livroPesquisaTitulo = lerMain.nextLine();
+                        livroPesquisaTitulo = lerMain.nextLine();
+                        pesquisarLivroTitulo(livroPesquisaTitulo);
+                        break;
+                    case 6:
+                        System.out.println("Insira o autor do livro que deseja pesquisar: ");
+                        livroPesquisaAutor = lerMain.nextLine();
+                        livroPesquisaAutor = lerMain.nextLine();
+                        pesquisarLivroAutor(livroPesquisaAutor);  
+                        break;
+                    case 7:
+                        System.out.println("Insira o gênero do livro que deseja pesquisar: ");
+                        livroPesquisaGenero = lerMain.next();
+                        pesquisarLivroGenero(livroPesquisaGenero);
+                        break;
+                    case 8:
+                        for (i = 0; i < usuarios.size(); i++) {
+                            if (emailVerifica.equalsIgnoreCase(usuarios.get(0).getEmail()) && senhaVerifica.equalsIgnoreCase(usuarios.get(0).getSenha())) {
+                                cadastrarLivro();
+                            }
+                            else{
+                                System.out.println("Você não tem permissão para cadastrar livros na biblioteca.");
+                            }
+                        }
+                        break;
+                    case 9:
+                        
+                        break;
+                    default:
+                        System.out.println("Selecione uma opção válida!");
+                        System.exit(0);
                 }
-            } else {
+            }else{
                 System.out.println("Senha ou email incorretos.");
             }
         }
@@ -183,6 +222,7 @@ public class Sistema {
         for (int i = 0; i < livros.size(); i++) {
             if (livroPesquisaTitulo.equalsIgnoreCase(livros.get(i).getTitulo())) {
                 System.out.println("Livro presente no acervo!");
+                livros.get(i).exibirLivro();
             }
         }
     }
@@ -191,6 +231,8 @@ public class Sistema {
         for (int i = 0; i < livros.size(); i++) {
             if (livroPesquisaAutor.equalsIgnoreCase(livros.get(i).getAutor())) {
                 System.out.println(livros.get(i).getTitulo());
+                System.out.println("\nLivro presente do acervo!\n");
+                livros.get(i).exibirLivro();
             }
         }
     }
@@ -199,6 +241,8 @@ public class Sistema {
         for (int i = 0; i < livros.size(); i++) {
             if (livroPesquisaGenero.equalsIgnoreCase(livros.get(i).getGenero())) {
                 System.out.println(livros.get(i).getTitulo());
+                System.out.println("\nLivro presente no acervo!");
+                livros.get(i).exibirLivro();
             }
         }
     }

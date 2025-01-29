@@ -5,11 +5,12 @@ public class Principal {
         int opcaoPrincipal, opcaoPrograma;
         Scanner lerPrincipal = new Scanner(System.in);
         Sistema sistema = new Sistema();
+        sistema.cadastrarAdmin();
        
         do{
             System.out.println("Seja bem-vind@! Escolha uma das opções abaixo:\n[1] PESQUISAR LIVRO POR TÍTULO"
                 + "\n[2] PESQUISAR LIVRO POR AUTOR\n[3] PESQUISAR LIVRO POR GÊNERO\n[4] CADASTRAR USUÁRIO\n"
-                + "[5] EFETUAR LOGIN\n[6] CATALOGAR NOVO LIVRO");
+                + "[5] EFETUAR LOGIN");
         opcaoPrincipal = lerPrincipal.nextInt();
         switch(opcaoPrincipal){
             case 1:
@@ -34,9 +35,6 @@ public class Principal {
                 break;
             case 5:
                 sistema.efetuarLogin();
-                break;
-            case 6:
-                sistema.cadastrarLivro();
                 break;
             default:
                 System.out.println("Insira uma opção válida!");

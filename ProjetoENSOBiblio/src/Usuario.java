@@ -23,11 +23,19 @@ public class Usuario{
         senha = lerUsuario.next();
     }
 
+    public Usuario(String IDUsuario, String email, String senha, String telefone, String nome, String CPF) {
+        this.IDUsuario = IDUsuario;
+        this.email = email;
+        this.senha = senha;
+        this.telefone = telefone;
+        this.nome = nome;
+        this.CPF = CPF;
+    }
+
 
     public String getEmail() {
         return email;
     }
-
 
     public String getSenha() {
         return senha;
