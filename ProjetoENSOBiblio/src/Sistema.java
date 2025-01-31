@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Sistema {
     Scanner lerMain = new Scanner(System.in);
-    private String emailVerifica, senhaVerifica;
+    private String IDLivroAd, emailVerifica, senhaVerifica;
     private float estrelasAva;
     private int opcaoLoginPro;
     ArrayList<Livro> livros = new ArrayList<Livro>();
@@ -154,7 +154,16 @@ public class Sistema {
                         }
                         break;
                     case 9:
-                        
+                        System.out.println("Insira o ID do livro que deseja adicionar um exemplar: ");
+                        IDLivroAd = lerMain.next();
+                        for(int x = 0; x<livros.size(); x++){
+                            if(IDLivroAd.equalsIgnoreCase(livros.get(i).getIDLivro())){
+                                Exemplar novoExemplar = new Exemplar();
+                            }
+                            else{
+                                System.out.println("Livro não encontrado no acervo...");
+                            }
+                        }
                         break;
                     default:
                         System.out.println("Selecione uma opção válida!");

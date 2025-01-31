@@ -1,12 +1,19 @@
 import java.util.*;
-    public class Exemplar extends Livro{
+    public class Exemplar {
         private String IDExemplar;
         private int emprestEscolha, reservEscolha;
         private boolean emprestado, reservado;
         Scanner lerExemplar = new Scanner(System.in);
        
+        public Exemplar(){
+            System.out.println("Insira o ID do exemplar: ");
+            IDExemplar = lerExemplar.next();
+            
+            emprestado = false;
+            reservado = false;
+        }
+        
         public Exemplar(String IDLivro, String titulo, String autor, String genero, String sinopse, int numExemplares, int anoPubli, String IDExemplar, boolean emprestado, boolean reservado) {
-            super(IDLivro, titulo, autor, genero, sinopse, numExemplares, anoPubli);
             this.IDExemplar = IDExemplar;
             this.emprestado = emprestado;
             this.reservado = reservado;
