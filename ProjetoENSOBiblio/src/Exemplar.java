@@ -37,16 +37,13 @@ import java.util.*;
             return emprestado;
         }
 
-
         public boolean getReservado() {
             return reservado;
         }
 
-
         public void setEmprestado(boolean emprestado) {
             this.emprestado = emprestado;
         }
-
 
         public void setReservado(boolean reservado) {
             this.reservado = reservado;

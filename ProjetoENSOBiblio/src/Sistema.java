@@ -167,14 +167,14 @@ public class Sistema {
     }
 
     public void emprestimo(String senhaVerifica, String livroEmprestimo) {
-        for (int i = 0; i < livros.size(); i++) {
-            if (livroEmprestimo.equalsIgnoreCase(livros.get(i).getIDLivro())) {
+        for (int n = 0; n < livros.size(); n++) {
+            if (livroEmprestimo.equalsIgnoreCase(livros.get(n).getIDLivro())) {
                 for (int j = 0; j < usuarios.size(); j++) {
                     if (senhaVerifica.equalsIgnoreCase(usuarios.get(j).getSenha())) {
-                        for (int y = 0; y < livros.get(i).getExemplares().size(); y++) {
-                            if (!((Exemplar) livros.get(i).getExemplares().get(y)).getEmprestado()) {
+                        for (int y = 0; y < livros.get(n).getExemplares().size(); y++) {
+                            if (((Exemplar) livros.get(n).getExemplares().get(y)).getEmprestado() == false) {
                                 System.out.println("Empréstimo realizado.");
-                                ((Exemplar) livros.get(i).getExemplares().get(y)).setEmprestado(true);
+                                ((Exemplar) livros.get(n).getExemplares().get(y)).setEmprestado(true);
                             } else {
                                 System.out.println("Todos os exemplares estão atualmente emprestados!");
                             }
