@@ -1,4 +1,5 @@
 import java.util.*;
+import java.time.LocalDate;
 public class Principal {
     public static void main(String Biblioteca[]){
         String livroPesquisaTitulo, livroPesquisaAutor, livroPesquisaGenero, novoLivroID, novoLivroNome;
@@ -6,6 +7,7 @@ public class Principal {
         Scanner lerPrincipal = new Scanner(System.in);
         Sistema sistema = new Sistema();
         sistema.cadastrarAdmin();
+        LocalDate dataHoje = LocalDate.now();
        
         do{
             System.out.println("Seja bem-vind@! Escolha uma das opções abaixo:\n[1] PESQUISAR LIVRO POR TÍTULO"
