@@ -3,7 +3,8 @@ public class Livro {
     private String IDLivro, titulo, autor, genero, sinopse;
     private int numExemplares, anoPubli;
     private float avaLivro;
-    ArrayList exemplares = new ArrayList<Exemplar>();
+    ArrayList<Exemplar> exemplares = new ArrayList<Exemplar>();
+    
     Scanner lerLivro = new Scanner(System.in);
 
 
@@ -59,5 +60,9 @@ public class Livro {
 
     public int getAnoPubli() {
         return anoPubli;
+    }
+
+    public void setExemplares(ArrayList exemplares) {
+        this.exemplares = exemplares;
     }
 }

@@ -27,6 +27,26 @@ public class Sistema {
         livros.add(livroVBSA);
         livros.add(livroUltimaParada);
         livros.add(livroHeartStopper);
+        
+        Exemplar exeVBSA1 = new Exemplar("VBSAUK", "Vermelho, Branco e Sangue Azul", "Casey MCQuinston", "Romance", "Relações internacionais entre o príncipe da Inglaterra e o filho da presidenta dos Estados Unidos.", 10, 2019, "VBSA1", false, true);
+        Exemplar exeVBSA2 = new Exemplar("VBSAUK", "Vermelho, Branco e Sangue Azul", "Casey MCQuinston", "Romance", "Relações internacionais entre o príncipe da Inglaterra e o filho da presidenta dos Estados Unidos.", 10, 2019, "VBSA2", true, false);
+        Exemplar exeVBSA3 = new Exemplar("VBSAUK", "Vermelho, Branco e Sangue Azul", "Casey MCQuinston", "Romance", "Relações internacionais entre o príncipe da Inglaterra e o filho da presidenta dos Estados Unidos.", 10, 2019, "VBSA3", false, false);
+        Exemplar exeULTPARAD1 = new Exemplar("VBSAUK", "Vermelho, Branco e Sangue Azul", "Casey MCQuinston", "Romance", "Relações internacionais entre o príncipe da Inglaterra e o filho da presidenta dos Estados Unidos.", 10, 2019, "ULTPARAD1", true, true);
+        Exemplar exeULTPARAD2 = new Exemplar("ULTPARAD", "Última Parada", "Romance", "Casey MCQuinston", "Jovem adulta tem crise existencial em um metrô e encontra o amor da sua vida: uma garota badass.", 5, 2021, "ULTPARAD2", false, false);
+        Exemplar exeULTPARAD3 = new Exemplar("ULTPARAD", "Última Parada", "Romance", "Casey MCQuinston", "Jovem adulta tem crise existencial em um metrô e encontra o amor da sua vida: uma garota badass.", 5, 2021, "ULTPARAD3", false, false);
+        Exemplar exeHRSTP1 = new Exemplar("ULTPARAD", "Última Parada", "Romance", "Casey MCQuinston", "Jovem adulta tem crise existencial em um metrô e encontra o amor da sua vida: uma garota badass.", 5, 2021, "HRSTP1", false, false);
+        Exemplar exeHRSTP2 = new Exemplar("HRSTP", "Heartstopper", "Romance", "Alice Oseman", "Dois garotos apaixonados descobrem as nuâncias da sexualidade, do amor e do afeto.", 5, 2019, "HRSTP2", true, true);
+        Exemplar exeHRSTP3 = new Exemplar("HRSTP", "Heartstopper", "Romance", "Alice Oseman", "Dois garotos apaixonados descobrem as nuâncias da sexualidade, do amor e do afeto.", 5, 2019, "HRSTP3", false, false);
+
+        livros.get(0).exemplares.add(exeVBSA1);
+        livros.get(0).exemplares.add(exeVBSA2);
+        livros.get(0).exemplares.add(exeVBSA3);
+        livros.get(1).exemplares.add(exeULTPARAD1);
+        livros.get(1).exemplares.add(exeULTPARAD2);
+        livros.get(1).exemplares.add(exeULTPARAD3);
+        livros.get(2).exemplares.add(exeHRSTP1);
+        livros.get(2).exemplares.add(exeHRSTP2);
+        livros.get(2).exemplares.add(exeHRSTP3);
     }
 
     public void cadastrarLivro() {
@@ -157,11 +177,15 @@ public class Sistema {
                         System.out.println("Insira o ID do livro que deseja adicionar um exemplar: ");
                         IDLivroAd = lerMain.next();
                         for(int x = 0; x<livros.size(); x++){
-                            if(IDLivroAd.equalsIgnoreCase(livros.get(i).getIDLivro())){
+                            if(IDLivroAd.equalsIgnoreCase(livros.get(x).getIDLivro())){
                                 Exemplar novoExemplar = new Exemplar();
+                                livros.get(x).exemplares.add(novoExemplar);
+                                for(int m = 0; m<livros.get(x).exemplares.size(); m++){
+                                    System.out.println("Exemplares existentes: "+livros.get(x).exemplares.get(m).getIDExemplar());
+                                }
                             }
                             else{
-                                System.out.println("Livro não encontrado no acervo...");
+                                System.out.println("Livro não encontrado no acervo");
                             }
                         }
                         break;
