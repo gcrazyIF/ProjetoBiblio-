@@ -39,35 +39,33 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="nomeUsuTexto" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="idUsuTexto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nomeUsuTexto" min="-2" max="-2" attributes="0"/>
+                                  <Component id="idUsuTexto" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="campoIDUsuario" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                                   <Component id="campoNome" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="CPFTexto" min="-2" max="-2" attributes="0"/>
-                                      <Component id="senhaTexto" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jFormattedTextField1" max="32767" attributes="0"/>
-                                      <Component id="jPasswordField1" pref="101" max="32767" attributes="0"/>
-                                  </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="CPFTexto" min="-2" max="-2" attributes="0"/>
+                                  <Component id="senhaTexto" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="emailTexto" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                                  <Component id="campoEmail" min="-2" pref="101" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jFormattedTextField1" max="32767" attributes="0"/>
+                                  <Component id="jPasswordField1" pref="101" max="32767" attributes="0"/>
                               </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="emailTexto" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                              <Component id="campoEmail" min="-2" pref="101" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="102" pref="102" max="-2" attributes="0"/>
