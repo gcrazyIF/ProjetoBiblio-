@@ -1,19 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
-/**
- *
- * @author genis
- */
+import java.util.*;
+import javax.swing.JOptionPane;
 public class MenuPrincipalPosLogin extends javax.swing.JFrame {
 
+    ArrayList<Livro> livros;
+    ArrayList<Exemplar> exemplares;
+    ArrayList<Usuario> usuarios;
     /**
      * Creates new form MenuPrincipalPosLogin
      */
-    public MenuPrincipalPosLogin() {
+    public MenuPrincipalPosLogin(ArrayList<Livro> livros, ArrayList<Exemplar> exemplares, ArrayList<Usuario> usuarios) {
         initComponents();
+        this.livros = livros;
+        this.exemplares = exemplares;
+        this.usuarios = usuarios;
     }
 
     /**
@@ -32,7 +31,6 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
         renovarEmprestimoBotao = new javax.swing.JButton();
         pesquisarTituloBotao = new javax.swing.JButton();
         pesqusiarAutorBotao = new javax.swing.JButton();
-        pesquisarGeneroBotao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,6 +49,11 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
         reservarLivroBotao.setText("Reservar exemplar");
 
         renovarEmprestimoBotao.setText("Renovar empréstimo");
+        renovarEmprestimoBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                renovarEmprestimoBotaoActionPerformed(evt);
+            }
+        });
 
         pesquisarTituloBotao.setText("Pesquisar obra por título");
         pesquisarTituloBotao.addActionListener(new java.awt.event.ActionListener() {
@@ -60,8 +63,11 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
         });
 
         pesqusiarAutorBotao.setText("Pesquisar obra por autor");
-
-        pesquisarGeneroBotao.setText("Pesquisar obra por gênero");
+        pesqusiarAutorBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesqusiarAutorBotaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,14 +84,14 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(realizarEmprestimoBotao)
                                 .addGap(174, 174, 174)
-                                .addComponent(pesquisarTituloBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(avaliarLivroBotao)
+                                .addComponent(pesquisarTituloBotao, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(reservarLivroBotao)
-                                .addGap(185, 185, 185)
-                                .addComponent(pesquisarGeneroBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(avaliarLivroBotao)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(renovarEmprestimoBotao)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(renovarEmprestimoBotao)
+                                    .addComponent(reservarLivroBotao))
                                 .addGap(171, 171, 171)
                                 .addComponent(pesqusiarAutorBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGap(88, 88, 88))
@@ -99,14 +105,15 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(realizarEmprestimoBotao)
                     .addComponent(pesquisarTituloBotao))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(renovarEmprestimoBotao)
-                    .addComponent(pesqusiarAutorBotao))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(reservarLivroBotao)
-                    .addComponent(pesquisarGeneroBotao))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(renovarEmprestimoBotao)
+                        .addGap(18, 18, 18)
+                        .addComponent(reservarLivroBotao))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(pesqusiarAutorBotao)))
                 .addGap(18, 18, 18)
                 .addComponent(avaliarLivroBotao)
                 .addContainerGap(73, Short.MAX_VALUE))
@@ -120,8 +127,31 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_avaliarLivroBotaoActionPerformed
 
     private void pesquisarTituloBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarTituloBotaoActionPerformed
-
+        String livroPesquisaTitulo;
+        livroPesquisaTitulo = JOptionPane.showInputDialog(null, "Insira o título que deseja pesquisar.");
+        for (int i = 0; i < livros.size(); i++) {
+            if (livroPesquisaTitulo.equalsIgnoreCase(livros.get(i).getTitulo())) {
+                JOptionPane.showMessageDialog(null, "Livro presente no acervo!");
+                livros.get(i).exibirLivro();
+            }
+        }
     }//GEN-LAST:event_pesquisarTituloBotaoActionPerformed
+
+    private void renovarEmprestimoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_renovarEmprestimoBotaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_renovarEmprestimoBotaoActionPerformed
+
+    private void pesqusiarAutorBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesqusiarAutorBotaoActionPerformed
+        String livroPesquisaAutor;
+        livroPesquisaAutor = JOptionPane.showInputDialog(null, "Insira o autor que deseja pesquisar.");
+        for (int i = 0; i < livros.size(); i++) {
+            if (livroPesquisaAutor.equalsIgnoreCase(livros.get(i).getAutor())) {
+                System.out.println(livros.get(i).getTitulo());
+                JOptionPane.showMessageDialog(null, "Autor presente no acervo!");
+                livros.get(i).exibirLivro();
+            }
+        }
+    }//GEN-LAST:event_pesqusiarAutorBotaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,7 +190,6 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton avaliarLivroBotao;
-    private javax.swing.JButton pesquisarGeneroBotao;
     private javax.swing.JButton pesquisarTituloBotao;
     private javax.swing.JButton pesqusiarAutorBotao;
     private javax.swing.JButton realizarEmprestimoBotao;

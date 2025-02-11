@@ -1,19 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
-/**
- *
- * @author genis
- */
+import java.util.*;
+import javax.swing.JOptionPane;
 public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
 
+    ArrayList<Livro> livros;
+    ArrayList<Exemplar> exemplares;
+    ArrayList<Usuario> usuarios;
     /**
      * Creates new form MenuPrincipalPosLogin
      */
-    public MenuPrincipalPosLoginAdmin() {
+    public MenuPrincipalPosLoginAdmin(ArrayList<Livro> livros, ArrayList<Exemplar> exemplares, ArrayList<Usuario> usuarios) {
         initComponents();
+        this.livros = livros;
+        this.exemplares = exemplares;
+        this.usuarios = usuarios;
     }
 
     /**
@@ -45,6 +44,11 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
         });
 
         pesqusiarAutorBotao.setText("Pesquisar obra por autor");
+        pesqusiarAutorBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesqusiarAutorBotaoActionPerformed(evt);
+            }
+        });
 
         pesquisarGeneroBotao.setText("Pesquisar obra por gênero");
 
@@ -101,12 +105,31 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pesquisarTituloBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarTituloBotaoActionPerformed
-
+        String livroPesquisaTitulo;
+        livroPesquisaTitulo = JOptionPane.showInputDialog(null, "Insira o título que deseja pesquisar.");
+        for (int i = 0; i < livros.size(); i++) {
+            if (livroPesquisaTitulo.equalsIgnoreCase(livros.get(i).getTitulo())) {
+                JOptionPane.showMessageDialog(null, "Livro presente no acervo!");
+                livros.get(i).exibirLivro();
+            }
+        }
     }//GEN-LAST:event_pesquisarTituloBotaoActionPerformed
 
     private void cadastrarExemplarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarExemplarBotaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastrarExemplarBotaoActionPerformed
+
+    private void pesqusiarAutorBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesqusiarAutorBotaoActionPerformed
+        String livroPesquisaAutor;
+        livroPesquisaAutor = JOptionPane.showInputDialog(null, "Insira o autor que deseja pesquisar.");
+        for (int i = 0; i < livros.size(); i++) {
+            if (livroPesquisaAutor.equalsIgnoreCase(livros.get(i).getAutor())) {
+                System.out.println(livros.get(i).getTitulo());
+                JOptionPane.showMessageDialog(null, "Autor presente no acervo!");
+                livros.get(i).exibirLivro();
+            }
+        }
+    }//GEN-LAST:event_pesqusiarAutorBotaoActionPerformed
 
     /**
      * @param args the command line arguments

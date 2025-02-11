@@ -31,7 +31,6 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="pesquisarGeneroBotao" max="32767" attributes="0"/>
                   <Component id="pesqusiarAutorBotao" alignment="0" max="32767" attributes="0"/>
                   <Component id="pesquisarTituloBotao" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -65,7 +64,12 @@
                               <Component id="emailTexto" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                               <Component id="campoEmail" min="-2" pref="101" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="9" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="cadastrarBotao" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="logarBotao" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="102" pref="102" max="-2" attributes="0"/>
@@ -87,45 +91,56 @@
               <Component id="tituloInterface" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="pesquisarTituloBotao" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="campoIDUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="idUsuTexto" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="campoNome" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nomeUsuTexto" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="campoNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nomeUsuTexto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="campoEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="emailTexto" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="pesquisarTituloBotao" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="telefoneTexto" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="campoNumero" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="CPFTexto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="campoCPF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="pesqusiarAutorBotao" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   </Group>
-              </Group>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="CPFTexto" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="campoCPF" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="senhaTexto" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="campoSenha" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pesquisarGeneroBotao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="60" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="cadastrarBotao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="logarBotao" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -149,13 +164,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="pesqusiarAutorBotao">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Pesquisar obra por autor"/>
+        <Property name="text" type="java.lang.String" value="Pesquisar autores"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="pesquisarGeneroBotao">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Pesquisar obra por g&#xea;nero"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesqusiarAutorBotaoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="campoIDUsuario">
     </Component>
@@ -212,6 +225,22 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="campoSenha">
+    </Component>
+    <Component class="javax.swing.JButton" name="cadastrarBotao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cadastrar usu&#xe1;rio"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarBotaoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="logarBotao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Logar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logarBotaoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

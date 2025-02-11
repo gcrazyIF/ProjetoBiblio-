@@ -1,12 +1,18 @@
 import java.util.*;
 import javax.swing.JOptionPane;
 public class MenuPrincipal extends javax.swing.JFrame {
-
+    
+    ArrayList<Livro> livros = new ArrayList<Livro>();
+    ArrayList<Exemplar> exemplares = new ArrayList<Exemplar>();
+    ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+    Usuario admin = new Usuario("0", "admin@gmail.com", "admin123", "(82)94002-8922", "ge", "980.567.323-12");
+    Sistema sistema = new Sistema();
     /**
      * Creates new form Interfac
      */
     public MenuPrincipal() {
         initComponents();
+        sistema.cadastrarAdmin();
     }
 
     /**
@@ -21,7 +27,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         tituloInterface = new javax.swing.JLabel();
         pesquisarTituloBotao = new javax.swing.JButton();
         pesqusiarAutorBotao = new javax.swing.JButton();
-        pesquisarGeneroBotao = new javax.swing.JButton();
         campoIDUsuario = new javax.swing.JTextField();
         idUsuTexto = new javax.swing.JLabel();
         nomeUsuTexto = new javax.swing.JLabel();
@@ -34,6 +39,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         campoCPF = new javax.swing.JFormattedTextField();
         campoNumero = new javax.swing.JFormattedTextField();
         campoSenha = new javax.swing.JPasswordField();
+        cadastrarBotao = new javax.swing.JButton();
+        logarBotao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,9 +54,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pesqusiarAutorBotao.setText("Pesquisar obra por autor");
-
-        pesquisarGeneroBotao.setText("Pesquisar obra por gênero");
+        pesqusiarAutorBotao.setText("Pesquisar autores");
+        pesqusiarAutorBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesqusiarAutorBotaoActionPerformed(evt);
+            }
+        });
 
         idUsuTexto.setText("ID de usuário:");
 
@@ -82,6 +92,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        cadastrarBotao.setText("Cadastrar usuário");
+        cadastrarBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarBotaoActionPerformed(evt);
+            }
+        });
+
+        logarBotao.setText("Logar");
+        logarBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logarBotaoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,7 +117,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pesquisarGeneroBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pesqusiarAutorBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pesquisarTituloBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(132, 132, 132)
@@ -120,7 +143,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                                 .addComponent(emailTexto)
                                 .addGap(78, 78, 78)
                                 .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 9, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cadastrarBotao)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(logarBotao)))
                         .addGap(102, 102, 102))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(telefoneTexto)
@@ -135,48 +162,108 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(tituloInterface)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pesquisarTituloBotao)
                     .addComponent(campoIDUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idUsuTexto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nomeUsuTexto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nomeUsuTexto))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(emailTexto))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(pesquisarTituloBotao)
+                        .addGap(21, 21, 21)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(telefoneTexto)
                             .addComponent(campoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(pesqusiarAutorBotao)
-                        .addGap(18, 18, 18)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CPFTexto)
-                    .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CPFTexto)
+                            .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(pesqusiarAutorBotao)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(senhaTexto)
-                    .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pesquisarGeneroBotao))
-                .addContainerGap(60, Short.MAX_VALUE))
+                    .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cadastrarBotao)
+                    .addComponent(logarBotao))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void pesquisarTituloBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarTituloBotaoActionPerformed
-        
+        String livroPesquisaTitulo;
+        livroPesquisaTitulo = JOptionPane.showInputDialog(null, "Insira o título que deseja pesquisar.");
+        for (int i = 0; i < livros.size(); i++) {
+            if (livroPesquisaTitulo.equalsIgnoreCase(livros.get(i).getTitulo())) {
+                JOptionPane.showMessageDialog(null, "Livro presente no acervo!");
+                livros.get(i).exibirLivro();
+            }
+        }
     }//GEN-LAST:event_pesquisarTituloBotaoActionPerformed
 
     private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNomeActionPerformed
+
+    private void logarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logarBotaoActionPerformed
+        String livroEmprestimo, livroReserva;
+        String emailVerifica = campoEmail.getText();
+        String senhaVerifica = campoSenha.getText();
+        for(int i = 0; i<usuarios.size(); i++){
+            if (emailVerifica.equalsIgnoreCase(usuarios.get(i).getEmail()) && senhaVerifica.equalsIgnoreCase(usuarios.get(i).getSenha())) {
+                JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
+                MenuPrincipalPosLogin menuPosLogin = new MenuPrincipalPosLogin(livros, exemplares, usuarios);
+                menuPosLogin.setVisible(true);
+            }
+            if(emailVerifica.equals("admin@gmail.com") && senhaVerifica.equals("admin123")){
+                JOptionPane.showMessageDialog(null, "Login do administrador realizado com sucesso!");
+                MenuPrincipalPosLoginAdmin menuAdmin = new MenuPrincipalPosLoginAdmin(livros, exemplares, usuarios);
+                menuAdmin.setVisible(true);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "E-mail ou senha incorretos!");
+            }
+        }
+        
+    }//GEN-LAST:event_logarBotaoActionPerformed
+
+    private void cadastrarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarBotaoActionPerformed
+        String IDUsuario = campoIDUsuario.getText();
+        String nome = campoNome.getText();
+        String email = campoEmail.getText();
+        String telefone = campoNumero.getText();
+        String CPF = campoCPF.getText();
+        String senha = campoSenha.getText();
+        Usuario novoUsuario = new Usuario(IDUsuario, email, senha, telefone, nome, CPF);
+        usuarios.add(novoUsuario);
+        JOptionPane.showMessageDialog(null, "Cadastro realizado!");
+    }//GEN-LAST:event_cadastrarBotaoActionPerformed
+
+    private void pesqusiarAutorBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesqusiarAutorBotaoActionPerformed
+        String livroPesquisaAutor;
+        livroPesquisaAutor = JOptionPane.showInputDialog(null, "Insira o autor que deseja pesquisar.");
+        for (int i = 0; i < livros.size(); i++) {
+            if (livroPesquisaAutor.equalsIgnoreCase(livros.get(i).getAutor())) {
+                System.out.println(livros.get(i).getTitulo());
+                JOptionPane.showMessageDialog(null, "Autor presente no acervo!");
+                livros.get(i).exibirLivro();
+            }
+        }
+    }//GEN-LAST:event_pesqusiarAutorBotaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,6 +303,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CPFTexto;
+    private javax.swing.JButton cadastrarBotao;
     private javax.swing.JFormattedTextField campoCPF;
     private javax.swing.JTextField campoEmail;
     private javax.swing.JTextField campoIDUsuario;
@@ -224,8 +312,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JLabel emailTexto;
     private javax.swing.JLabel idUsuTexto;
+    private javax.swing.JButton logarBotao;
     private javax.swing.JLabel nomeUsuTexto;
-    private javax.swing.JButton pesquisarGeneroBotao;
     private javax.swing.JButton pesquisarTituloBotao;
     private javax.swing.JButton pesqusiarAutorBotao;
     private javax.swing.JLabel senhaTexto;
