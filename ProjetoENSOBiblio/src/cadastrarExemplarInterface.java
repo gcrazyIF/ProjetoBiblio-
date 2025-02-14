@@ -101,9 +101,9 @@ public class cadastrarExemplarInterface extends javax.swing.JFrame {
             if(IDLivroExemplar.equalsIgnoreCase(livros.get(x).getIDLivro())){
                 Exemplar novoExemplar = new Exemplar();
                 livros.get(x).exemplares.add(novoExemplar);
-                 for(int m = 0; m<livros.get(x).exemplares.size(); m++){
+                for(int m = 0; m<livros.get(x).exemplares.size(); m++){
                     System.out.println("Exemplares existentes: "+livros.get(x).exemplares.get(m).getIDExemplar());
-                 }
+                }
             }
             else{
                 System.out.println("Livro não encontrado no acervo");
