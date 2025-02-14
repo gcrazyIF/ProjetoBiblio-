@@ -5,6 +5,7 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
     ArrayList<Livro> livros;
     ArrayList<Exemplar> exemplares;
     ArrayList<Usuario> usuarios;
+    String livroPesquisaAutor, IDlivroReserva, senhaVerifica;
     /**
      * Creates new form MenuPrincipalPosLogin
      */
@@ -47,6 +48,11 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
         realizarEmprestimoBotao.setText("Realizar empréstimo");
 
         reservarLivroBotao.setText("Reservar exemplar");
+        reservarLivroBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reservarLivroBotaoActionPerformed(evt);
+            }
+        });
 
         renovarEmprestimoBotao.setText("Renovar empréstimo");
         renovarEmprestimoBotao.addActionListener(new java.awt.event.ActionListener() {
@@ -142,7 +148,7 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_renovarEmprestimoBotaoActionPerformed
 
     private void pesqusiarAutorBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesqusiarAutorBotaoActionPerformed
-        String livroPesquisaAutor;
+
         livroPesquisaAutor = JOptionPane.showInputDialog(null, "Insira o autor que deseja pesquisar.");
         for (int i = 0; i < livros.size(); i++) {
             if (livroPesquisaAutor.equalsIgnoreCase(livros.get(i).getAutor())) {
@@ -152,6 +158,33 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_pesqusiarAutorBotaoActionPerformed
+
+    private void reservarLivroBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservarLivroBotaoActionPerformed
+
+        IDlivroReserva = JOptionPane.showInputDialog(null, "Insira o ID do livro que deseja realizar a reserva.");
+        senhaVerifica = JOptionPane.showInputDialog(null, "Insira sua senha: ");
+        for(int i = 0; i<usuarios.size(); i++){
+            for(int j = 0; j<livros.size(); j++){
+                if(senhaVerifica.equals(usuarios.get(i).getSenha())){
+                    if(IDlivroReserva.equals(livros.get(j).getIDLivro())){
+                        for(int y=0; y<livros.get(j).getExemplares().size(); y++){
+                            if(!((Exemplar) livros.get(j).getExemplares().get(y)).getReservado()){
+                                ((Exemplar) livros.get(i).getExemplares().get(y)).setReservado(true);
+                                JOptionPane.showMessageDialog(null, "Reserva realizada com sucesso!");
+                            }
+                            else{
+                                JOptionPane.showMessageDialog(null, "Todos os exemplares já estão reservados!");
+                            }
+                        }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Livro não encontrado no acervo!");
+                    }
+                }
+                JOptionPane.showMessageDialog(null, "Senha incorreta!");
+            }
+        }
+    }//GEN-LAST:event_reservarLivroBotaoActionPerformed
 
     /**
      * @param args the command line arguments

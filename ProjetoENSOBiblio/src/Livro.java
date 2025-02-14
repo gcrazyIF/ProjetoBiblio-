@@ -16,6 +16,10 @@ public class Livro {
         this.sinopse = sinopse;
         this.numExemplares = numExemplares;
         this.anoPubli = anoPubli;
+        
+        for(int l = 0; l<numExemplares; l++){
+            Exemplar novoExemplar = new Exemplar();
+        }
     }
 
     public void exibirLivro(){

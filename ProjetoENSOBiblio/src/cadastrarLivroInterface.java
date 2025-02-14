@@ -2,11 +2,19 @@ import java.util.*;
 import javax.swing.JOptionPane;
 public class cadastrarLivroInterface extends javax.swing.JFrame {
 
+    ArrayList<Livro> livros;
+    ArrayList<Exemplar> exemplares;
+    ArrayList<Usuario> usuarios;
+    String IDLivro, titulo, autor, genero, sinopse;
+    int numExemplares, anoPubli;
     /**
      * Creates new form cadastrarLivroInterface
      */
-    public cadastrarLivroInterface() {
+    public cadastrarLivroInterface(ArrayList<Livro> livros, ArrayList<Exemplar> exemplares, ArrayList<Usuario> usuarios) {
         initComponents();
+        this.livros = livros;
+        this.exemplares = exemplares;
+        this.usuarios = usuarios;
     }
 
     /**
@@ -29,6 +37,11 @@ public class cadastrarLivroInterface extends javax.swing.JFrame {
         campoAutorLivro = new javax.swing.JTextField();
         campoGeneroLivro = new javax.swing.JTextField();
         campoSinopse = new javax.swing.JTextField();
+        cadastrarLivroBotaoInterface = new javax.swing.JButton();
+        anoPubliTexto = new javax.swing.JLabel();
+        numExemplarTexto = new javax.swing.JLabel();
+        campoAnoPubli = new javax.swing.JTextField();
+        campoNumExem = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,6 +73,29 @@ public class cadastrarLivroInterface extends javax.swing.JFrame {
 
         campoGeneroLivro.setToolTipText("");
 
+        cadastrarLivroBotaoInterface.setText("Cadastrar livro");
+        cadastrarLivroBotaoInterface.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarLivroBotaoInterfaceActionPerformed(evt);
+            }
+        });
+
+        anoPubliTexto.setText("Ano de publicação:");
+
+        numExemplarTexto.setText("Número de exemplares no acervo:");
+
+        campoAnoPubli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoAnoPubliActionPerformed(evt);
+            }
+        });
+
+        campoNumExem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoNumExemActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -71,28 +107,46 @@ public class cadastrarLivroInterface extends javax.swing.JFrame {
                         .addComponent(tituloInterface))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(67, 67, 67)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(IDLivroTexto)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(campoIDLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(generoLivroTexto)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(campoGeneroLivro))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(tituloLivroTexto)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(campoTituloLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(autorLivroTexto)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(campoAutorLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(sipnoseLivroTexto)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoSinopse, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(campoSinopse, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(IDLivroTexto)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(campoIDLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(generoLivroTexto)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(campoGeneroLivro))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(tituloLivroTexto)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(campoTituloLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(autorLivroTexto)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(campoAutorLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cadastrarLivroBotaoInterface)
+                                        .addGap(89, 89, 89))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(36, 36, 36)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(anoPubliTexto)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(campoAnoPubli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(numExemplarTexto)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(campoNumExem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -100,28 +154,37 @@ public class cadastrarLivroInterface extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tituloInterface)
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IDLivroTexto)
-                    .addComponent(campoIDLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(IDLivroTexto)
+                            .addComponent(campoIDLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(cadastrarLivroBotaoInterface)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tituloLivroTexto)
                     .addComponent(campoTituloLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(autorLivroTexto)
-                    .addComponent(campoAutorLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoAutorLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(anoPubliTexto)
+                    .addComponent(campoAnoPubli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(generoLivroTexto)
-                    .addComponent(campoGeneroLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoGeneroLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numExemplarTexto)
+                    .addComponent(campoNumExem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(sipnoseLivroTexto)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(campoSinopse, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE))
+                    .addComponent(campoSinopse, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -135,6 +198,26 @@ public class cadastrarLivroInterface extends javax.swing.JFrame {
     private void campoTituloLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTituloLivroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoTituloLivroActionPerformed
+
+    private void cadastrarLivroBotaoInterfaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarLivroBotaoInterfaceActionPerformed
+        IDLivro = campoIDLivro.getText();
+        titulo = campoTituloLivro.getText();
+        autor = campoAutorLivro.getText();
+        genero = campoGeneroLivro.getText();
+        sinopse = campoSinopse.getText();
+        numExemplares = Integer.parseInt(campoNumExem.getText());
+        anoPubli = Integer.parseInt(campoAnoPubli.getText());
+        
+        Livro livroNovo = new Livro(IDLivro, titulo, autor, genero, sinopse, numExemplares, anoPubli);
+    }//GEN-LAST:event_cadastrarLivroBotaoInterfaceActionPerformed
+
+    private void campoAnoPubliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoAnoPubliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoAnoPubliActionPerformed
+
+    private void campoNumExemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNumExemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoNumExemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,13 +256,18 @@ public class cadastrarLivroInterface extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel IDLivroTexto;
+    private javax.swing.JLabel anoPubliTexto;
     private javax.swing.JLabel autorLivroTexto;
+    private javax.swing.JButton cadastrarLivroBotaoInterface;
+    private javax.swing.JTextField campoAnoPubli;
     private javax.swing.JTextField campoAutorLivro;
     private javax.swing.JTextField campoGeneroLivro;
     private javax.swing.JTextField campoIDLivro;
+    private javax.swing.JTextField campoNumExem;
     private javax.swing.JTextField campoSinopse;
     private javax.swing.JTextField campoTituloLivro;
     private javax.swing.JLabel generoLivroTexto;
+    private javax.swing.JLabel numExemplarTexto;
     private javax.swing.JLabel sipnoseLivroTexto;
     private javax.swing.JLabel tituloInterface;
     private javax.swing.JLabel tituloLivroTexto;

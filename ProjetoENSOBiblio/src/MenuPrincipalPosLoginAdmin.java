@@ -53,6 +53,11 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
         pesquisarGeneroBotao.setText("Pesquisar obra por gênero");
 
         cadastrarLivroBotao.setText("Cadastrar novo livro");
+        cadastrarLivroBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarLivroBotaoActionPerformed(evt);
+            }
+        });
 
         cadastrarExemplarBotao.setText("Cadastrar novo exemplar");
         cadastrarExemplarBotao.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +121,8 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_pesquisarTituloBotaoActionPerformed
 
     private void cadastrarExemplarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarExemplarBotaoActionPerformed
-        // TODO add your handling code here:
+        cadastrarExemplarInterface cadExemplarInterface = new cadastrarExemplarInterface(livros, exemplares, usuarios);
+        cadExemplarInterface.setVisible(true);
     }//GEN-LAST:event_cadastrarExemplarBotaoActionPerformed
 
     private void pesqusiarAutorBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesqusiarAutorBotaoActionPerformed
@@ -130,6 +136,11 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_pesqusiarAutorBotaoActionPerformed
+
+    private void cadastrarLivroBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarLivroBotaoActionPerformed
+        cadastrarLivroInterface cadLivroInterface = new cadastrarLivroInterface(livros, exemplares, usuarios);
+        cadLivroInterface.setVisible(true);
+    }//GEN-LAST:event_cadastrarLivroBotaoActionPerformed
 
     /**
      * @param args the command line arguments
