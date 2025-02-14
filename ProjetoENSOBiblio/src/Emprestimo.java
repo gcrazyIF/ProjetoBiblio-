@@ -1,7 +1,9 @@
 import java.util.*;
+import java.time.LocalDate;
 public class Emprestimo {
-    String IDEmprestimo, dataVencimento, dataNovaVencimento;
+    LocalDate dataVencimento, dataNovaVencimento;
     boolean emprestado, reservado;
+    String IDEmprestimo;
     Scanner lerEmprestimo = new Scanner(System.in);
 
     public Emprestimo(){
@@ -9,7 +11,8 @@ public class Emprestimo {
         IDEmprestimo = lerEmprestimo.next();
         
         System.out.println("Insira a data de vencimento: ");
-        dataVencimento = lerEmprestimo.next();
+        dataVencimento = LocalDate.now().plusDays(7);
+        System.out.println(dataVencimento);
         
         emprestado = true;
         reservado = false;

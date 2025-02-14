@@ -222,14 +222,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void logarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logarBotaoActionPerformed
         String livroEmprestimo, livroReserva;
         String emailVerifica = campoEmail.getText();
-        String senhaVerifica = campoSenha.getText();
+        String senhaVerifica = new String(campoSenha.getPassword());
         for(int i = 0; i<usuarios.size(); i++){
-            if (emailVerifica.equalsIgnoreCase(usuarios.get(i).getEmail()) && senhaVerifica.equalsIgnoreCase(usuarios.get(i).getSenha())) {
+            if (emailVerifica.equalsIgnoreCase(usuarios.get(i).getEmail()) && senhaVerifica.equals(usuarios.get(i).getSenha())) {
                 JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
                 MenuPrincipalPosLogin menuPosLogin = new MenuPrincipalPosLogin(livros, exemplares, usuarios);
                 menuPosLogin.setVisible(true);
             }
-            if(emailVerifica.equals("admin@gmail.com") && senhaVerifica.equals("admin123")){
+            else if(emailVerifica.equals("admin@gmail.com") && senhaVerifica.equals("admin123")){
                 JOptionPane.showMessageDialog(null, "Login do administrador realizado com sucesso!");
                 MenuPrincipalPosLoginAdmin menuAdmin = new MenuPrincipalPosLoginAdmin(livros, exemplares, usuarios);
                 menuAdmin.setVisible(true);
