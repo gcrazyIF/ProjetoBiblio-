@@ -6,15 +6,18 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
     ArrayList<Exemplar> exemplares;
     ArrayList<Emprestimo> emprestimos;
     ArrayList<Usuario> usuarios;
+    ArrayList<Avaliacao> avaliacoes;
+    String  livroPesquisaTitulo, livroPesquisaAutor, livroPesquisaGenero;
     /**
      * Creates new form MenuPrincipalPosLogin
      */
-    public MenuPrincipalPosLoginAdmin(ArrayList<Livro> livros, ArrayList<Exemplar> exemplares, ArrayList<Emprestimo> emprestimos, ArrayList<Usuario> usuarios) {
+    public MenuPrincipalPosLoginAdmin(ArrayList<Livro> livros, ArrayList<Exemplar> exemplares, ArrayList<Emprestimo> emprestimos, ArrayList<Usuario> usuarios, ArrayList<Avaliacao> avaliacoes) {
         initComponents();
         this.livros = livros;
         this.exemplares = exemplares;
         this.emprestimos = emprestimos;
         this.usuarios = usuarios;
+        this.avaliacoes = avaliacoes;
     }
 
     /**
@@ -28,7 +31,7 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
 
         tituloInterface = new javax.swing.JLabel();
         pesquisarTituloBotao = new javax.swing.JButton();
-        pesqusiarAutorBotao = new javax.swing.JButton();
+        pesquisarAutorBotao = new javax.swing.JButton();
         pesquisarGeneroBotao = new javax.swing.JButton();
         cadastrarLivroBotao = new javax.swing.JButton();
         cadastrarExemplarBotao = new javax.swing.JButton();
@@ -45,14 +48,19 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
             }
         });
 
-        pesqusiarAutorBotao.setText("Pesquisar obra por autor");
-        pesqusiarAutorBotao.addActionListener(new java.awt.event.ActionListener() {
+        pesquisarAutorBotao.setText("Pesquisar obra por autor");
+        pesquisarAutorBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pesqusiarAutorBotaoActionPerformed(evt);
+                pesquisarAutorBotaoActionPerformed(evt);
             }
         });
 
         pesquisarGeneroBotao.setText("Pesquisar obra por gênero");
+        pesquisarGeneroBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisarGeneroBotaoActionPerformed(evt);
+            }
+        });
 
         cadastrarLivroBotao.setText("Cadastrar novo livro");
         cadastrarLivroBotao.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +94,7 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
                         .addGap(103, 103, 103)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pesquisarTituloBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pesqusiarAutorBotao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pesquisarAutorBotao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pesquisarGeneroBotao, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))))
                 .addGap(88, 88, 88))
         );
@@ -101,7 +109,7 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
                     .addComponent(cadastrarLivroBotao))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pesqusiarAutorBotao)
+                    .addComponent(pesquisarAutorBotao)
                     .addComponent(cadastrarExemplarBotao))
                 .addGap(18, 18, 18)
                 .addComponent(pesquisarGeneroBotao)
@@ -112,7 +120,6 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pesquisarTituloBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarTituloBotaoActionPerformed
-        String livroPesquisaTitulo;
         livroPesquisaTitulo = JOptionPane.showInputDialog(null, "Insira o título que deseja pesquisar.");
         for (int i = 0; i < livros.size(); i++) {
             if (livroPesquisaTitulo.equalsIgnoreCase(livros.get(i).getTitulo())) {
@@ -127,8 +134,7 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
         cadExemplarInterface.setVisible(true);
     }//GEN-LAST:event_cadastrarExemplarBotaoActionPerformed
 
-    private void pesqusiarAutorBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesqusiarAutorBotaoActionPerformed
-        String livroPesquisaAutor;
+    private void pesquisarAutorBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarAutorBotaoActionPerformed
         livroPesquisaAutor = JOptionPane.showInputDialog(null, "Insira o autor que deseja pesquisar.");
         for (int i = 0; i < livros.size(); i++) {
             if (livroPesquisaAutor.equalsIgnoreCase(livros.get(i).getAutor())) {
@@ -137,12 +143,16 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
                 livros.get(i).exibirLivro();
             }
         }
-    }//GEN-LAST:event_pesqusiarAutorBotaoActionPerformed
+    }//GEN-LAST:event_pesquisarAutorBotaoActionPerformed
 
     private void cadastrarLivroBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarLivroBotaoActionPerformed
         cadastrarLivroInterface cadLivroInterface = new cadastrarLivroInterface(livros, exemplares, emprestimos, usuarios);
         cadLivroInterface.setVisible(true);
     }//GEN-LAST:event_cadastrarLivroBotaoActionPerformed
+
+    private void pesquisarGeneroBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarGeneroBotaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pesquisarGeneroBotaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,9 +192,9 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cadastrarExemplarBotao;
     private javax.swing.JButton cadastrarLivroBotao;
+    private javax.swing.JButton pesquisarAutorBotao;
     private javax.swing.JButton pesquisarGeneroBotao;
     private javax.swing.JButton pesquisarTituloBotao;
-    private javax.swing.JButton pesqusiarAutorBotao;
     private javax.swing.JLabel tituloInterface;
     // End of variables declaration//GEN-END:variables
 }

@@ -39,7 +39,7 @@
                       <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="pesquisarTituloBotao" alignment="0" max="32767" attributes="0"/>
-                          <Component id="pesqusiarAutorBotao" alignment="1" max="32767" attributes="0"/>
+                          <Component id="pesquisarAutorBotao" alignment="1" max="32767" attributes="0"/>
                           <Component id="pesquisarGeneroBotao" pref="219" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -60,7 +60,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="pesqusiarAutorBotao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="pesquisarAutorBotao" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cadastrarExemplarBotao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -87,18 +87,21 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesquisarTituloBotaoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="pesqusiarAutorBotao">
+    <Component class="javax.swing.JButton" name="pesquisarAutorBotao">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pesquisar obra por autor"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesqusiarAutorBotaoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesquisarAutorBotaoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="pesquisarGeneroBotao">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pesquisar obra por g&#xea;nero"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesquisarGeneroBotaoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="cadastrarLivroBotao">
       <Properties>

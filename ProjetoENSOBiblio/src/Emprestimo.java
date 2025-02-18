@@ -44,6 +44,10 @@ public class Emprestimo {
     public void setReservado(boolean reservado) {
         this.reservado = reservado;
     }
+
+    public void setEmprestado(boolean emprestado) {
+        this.emprestado = emprestado;
+    }
     
     public boolean isEmprestado() {
         return emprestado;

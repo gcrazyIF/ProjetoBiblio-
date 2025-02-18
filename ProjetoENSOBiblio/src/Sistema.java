@@ -1,13 +1,14 @@
 import java.util.*;
+import javax.swing.JOptionPane;
 
 public class Sistema {
     Scanner lerMain = new Scanner(System.in);
     private String IDLivroAd, emailVerifica, senhaVerifica;
     private float estrelasAva;
     private int opcaoLoginPro;
-    ArrayList<Livro> livros = new ArrayList<Livro>();
-    ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-    ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
+    private ArrayList<Livro> livros = new ArrayList<Livro>();
+    private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+    private ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
     Usuario admin = new Usuario("0", "admin@gmail.com", "admin123", "(82)94002-8922", "ge", "980.567.323-12");
 
     public Sistema() {
@@ -41,17 +42,19 @@ public class Sistema {
         Emprestimo emprHRSTP1 = new Emprestimo(true);
         Exemplar exeHRSTP3 = new Exemplar("HRSTP", "Heartstopper", "Romance", "Alice Oseman", "Dois garotos apaixonados descobrem as nuâncias da sexualidade, do amor e do afeto.", 3, 2019, "HRSTP3", false, false);
 
-        livros.get(0).exemplares.add(exeVBSA1);
-        livros.get(0).exemplares.add(exeVBSA2);
-        livros.get(0).exemplares.add(exeVBSA3);
-        livros.get(1).exemplares.add(exeULTPARAD1);
-        livros.get(1).exemplares.add(exeULTPARAD2);
-        livros.get(2).exemplares.add(exeHRSTP1);
-        livros.get(2).exemplares.add(exeHRSTP2);
-        livros.get(2).exemplares.add(exeHRSTP3);
+        livros.get(0).getExemplares().add(exeVBSA1);
+        livros.get(0).getExemplares().add(exeVBSA2);
+        livros.get(0).getExemplares().add(exeVBSA3);
+        livros.get(1).getExemplares().add(exeULTPARAD1);
+        livros.get(1).getExemplares().add(exeULTPARAD2);
+        livros.get(2).getExemplares().add(exeHRSTP1);
+        livros.get(2).getExemplares().add(exeHRSTP2);
+        livros.get(2).getExemplares().add(exeHRSTP3);
         emprestimos.add(emprVBSA1);
         emprestimos.add(emprULTPARAD1);
         emprestimos.add(emprHRSTP1);
+        
+        usuarios.add(admin);
         
     }
 
@@ -185,9 +188,9 @@ public class Sistema {
                         for(int x = 0; x<livros.size(); x++){
                             if(IDLivroAd.equalsIgnoreCase(livros.get(x).getIDLivro())){
                                 Exemplar novoExemplar = new Exemplar();
-                                livros.get(x).exemplares.add(novoExemplar);
-                                for(int m = 0; m<livros.get(x).exemplares.size(); m++){
-                                    System.out.println("Exemplares existentes: "+livros.get(x).exemplares.get(m).getIDExemplar());
+                                livros.get(x).getExemplares().add(novoExemplar);
+                                for(int m = 0; m<livros.get(x).getExemplares().size(); m++){
+                                    System.out.println("Exemplares existentes: "+livros.get(x).getExemplares().get(m).getIDExemplar());
                                 }
                             }
                             else{

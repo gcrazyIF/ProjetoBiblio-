@@ -213,6 +213,7 @@ public class cadastrarLivroInterface extends javax.swing.JFrame {
         Livro livroNovo = new Livro(IDLivro, titulo, autor, genero, sinopse, numExemplares, anoPubli);
         for(int l = 0; l<numExemplares; l++){
             Exemplar novoExemplar = new Exemplar();
+            livroNovo.getExemplares().add(novoExemplar);
         }
     }//GEN-LAST:event_cadastrarLivroBotaoInterfaceActionPerformed
 
