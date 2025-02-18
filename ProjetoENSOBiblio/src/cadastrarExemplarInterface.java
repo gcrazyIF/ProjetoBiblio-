@@ -4,15 +4,17 @@ public class cadastrarExemplarInterface extends javax.swing.JFrame {
 
     ArrayList<Livro> livros;
     ArrayList<Exemplar> exemplares;
+    ArrayList<Emprestimo> emprestimos;
     ArrayList<Usuario> usuarios;
     String IDLivroExemplar, IDExemplar;
     /**
      * Creates new form cadastrarExemplarInterface
      */
-    public cadastrarExemplarInterface(ArrayList<Livro> livros, ArrayList<Exemplar> exemplares, ArrayList<Usuario> usuarios) {
+    public cadastrarExemplarInterface(ArrayList<Livro> livros, ArrayList<Exemplar> exemplares, ArrayList<Emprestimo> emprestimos, ArrayList<Usuario> usuarios) {
         initComponents();
         this.livros = livros;
         this.exemplares = exemplares;
+        this.emprestimos = emprestimos;
         this.usuarios = usuarios;
     }
 

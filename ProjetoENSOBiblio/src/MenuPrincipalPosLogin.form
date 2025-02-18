@@ -35,7 +35,7 @@
                           <Group type="102" attributes="0">
                               <Component id="realizarEmprestimoBotao" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
-                              <Component id="pesquisarTituloBotao" pref="168" max="32767" attributes="0"/>
+                              <Component id="pesquisarTituloBotao" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="avaliarLivroBotao" min="-2" max="-2" attributes="0"/>
@@ -46,7 +46,12 @@
                                   <Component id="renovarEmprestimoBotao" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="reservarLivroBotao" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="cancelarReservaBotao" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cancelarEmprestimoBotao" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                               <Component id="pesqusiarAutorBotao" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -69,9 +74,15 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="renovarEmprestimoBotao" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="renovarEmprestimoBotao" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cancelarEmprestimoBotao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="reservarLivroBotao" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="reservarLivroBotao" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cancelarReservaBotao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
@@ -106,6 +117,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Realizar empr&#xe9;stimo"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="realizarEmprestimoBotaoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="reservarLivroBotao">
       <Properties>
@@ -137,6 +151,22 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesqusiarAutorBotaoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cancelarEmprestimoBotao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar empr&#xe9;stimo"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarEmprestimoBotaoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cancelarReservaBotao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar reserva"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarReservaBotaoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

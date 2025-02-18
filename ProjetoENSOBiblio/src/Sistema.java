@@ -7,6 +7,7 @@ public class Sistema {
     private int opcaoLoginPro;
     ArrayList<Livro> livros = new ArrayList<Livro>();
     ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+    ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
     Usuario admin = new Usuario("0", "admin@gmail.com", "admin123", "(82)94002-8922", "ge", "980.567.323-12");
 
     public Sistema() {
@@ -30,11 +31,14 @@ public class Sistema {
         
         Exemplar exeVBSA1 = new Exemplar("VBSAUK", "Vermelho, Branco e Sangue Azul", "Casey MCQuinston", "Romance", "Relações internacionais entre o príncipe da Inglaterra e o filho da presidenta dos Estados Unidos.", 3, 2019, "VBSA1", false, true);
         Exemplar exeVBSA2 = new Exemplar("VBSAUK", "Vermelho, Branco e Sangue Azul", "Casey MCQuinston", "Romance", "Relações internacionais entre o príncipe da Inglaterra e o filho da presidenta dos Estados Unidos.", 3, 2019, "VBSA2", true, false);
+        Emprestimo emprVBSA1 = new Emprestimo(true);
         Exemplar exeVBSA3 = new Exemplar("VBSAUK", "Vermelho, Branco e Sangue Azul", "Casey MCQuinston", "Romance", "Relações internacionais entre o príncipe da Inglaterra e o filho da presidenta dos Estados Unidos.", 3, 2019, "VBSA3", false, false);
         Exemplar exeULTPARAD1 = new Exemplar("ULTPARAD", "Última Parada", "Casey MCQuinston", "Romance", "Jovem adulta tem crise existencial em um metrô e encontra o amor da sua vida: uma garota badass.", 2, 2021, "ULTPARAD1", true, true);
+        Emprestimo emprULTPARAD1 = new Emprestimo(true);
         Exemplar exeULTPARAD2 = new Exemplar("ULTPARAD", "Última Parada", "Casey MCQuinston", "Romance", "Jovem adulta tem crise existencial em um metrô e encontra o amor da sua vida: uma garota badass.", 2, 2021, "ULTPARAD2", false, false);
         Exemplar exeHRSTP1 = new Exemplar("HRSTP", "Heartstopper", "Romance", "Alice Oseman", "Dois garotos apaixonados descobrem as nuâncias da sexualidade, do amor e do afeto.", 3, 2019, "HRSTP1", false, false);
         Exemplar exeHRSTP2 = new Exemplar("HRSTP", "Heartstopper", "Romance", "Alice Oseman", "Dois garotos apaixonados descobrem as nuâncias da sexualidade, do amor e do afeto.", 3, 2019, "HRSTP2", true, true);
+        Emprestimo emprHRSTP1 = new Emprestimo(true);
         Exemplar exeHRSTP3 = new Exemplar("HRSTP", "Heartstopper", "Romance", "Alice Oseman", "Dois garotos apaixonados descobrem as nuâncias da sexualidade, do amor e do afeto.", 3, 2019, "HRSTP3", false, false);
 
         livros.get(0).exemplares.add(exeVBSA1);
@@ -45,6 +49,10 @@ public class Sistema {
         livros.get(2).exemplares.add(exeHRSTP1);
         livros.get(2).exemplares.add(exeHRSTP2);
         livros.get(2).exemplares.add(exeHRSTP3);
+        emprestimos.add(emprVBSA1);
+        emprestimos.add(emprULTPARAD1);
+        emprestimos.add(emprHRSTP1);
+        
     }
 
     public void cadastrarLivro() {
@@ -281,4 +289,14 @@ public class Sistema {
     public ArrayList<Livro> getLivros() {
         return livros;
     }
+
+    public ArrayList<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public ArrayList<Emprestimo> getEmprestimos() {
+        return emprestimos;
+    }
+    
+    
 }

@@ -32,12 +32,15 @@ public class Usuario{
         this.CPF = CPF;
     }
 
-
     public String getEmail() {
         return email;
     }
 
     public String getSenha() {
         return senha;
+    }
+
+    public String getIDUsuario() {
+        return IDUsuario;
     }
 }

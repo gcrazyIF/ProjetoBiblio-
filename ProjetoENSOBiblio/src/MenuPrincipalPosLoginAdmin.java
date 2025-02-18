@@ -4,14 +4,16 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
 
     ArrayList<Livro> livros;
     ArrayList<Exemplar> exemplares;
+    ArrayList<Emprestimo> emprestimos;
     ArrayList<Usuario> usuarios;
     /**
      * Creates new form MenuPrincipalPosLogin
      */
-    public MenuPrincipalPosLoginAdmin(ArrayList<Livro> livros, ArrayList<Exemplar> exemplares, ArrayList<Usuario> usuarios) {
+    public MenuPrincipalPosLoginAdmin(ArrayList<Livro> livros, ArrayList<Exemplar> exemplares, ArrayList<Emprestimo> emprestimos, ArrayList<Usuario> usuarios) {
         initComponents();
         this.livros = livros;
         this.exemplares = exemplares;
+        this.emprestimos = emprestimos;
         this.usuarios = usuarios;
     }
 
@@ -121,7 +123,7 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_pesquisarTituloBotaoActionPerformed
 
     private void cadastrarExemplarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarExemplarBotaoActionPerformed
-        cadastrarExemplarInterface cadExemplarInterface = new cadastrarExemplarInterface(livros, exemplares, usuarios);
+        cadastrarExemplarInterface cadExemplarInterface = new cadastrarExemplarInterface(livros, exemplares, emprestimos, usuarios);
         cadExemplarInterface.setVisible(true);
     }//GEN-LAST:event_cadastrarExemplarBotaoActionPerformed
 
@@ -138,7 +140,7 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_pesqusiarAutorBotaoActionPerformed
 
     private void cadastrarLivroBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarLivroBotaoActionPerformed
-        cadastrarLivroInterface cadLivroInterface = new cadastrarLivroInterface(livros, exemplares, usuarios);
+        cadastrarLivroInterface cadLivroInterface = new cadastrarLivroInterface(livros, exemplares, emprestimos, usuarios);
         cadLivroInterface.setVisible(true);
     }//GEN-LAST:event_cadastrarLivroBotaoActionPerformed
 

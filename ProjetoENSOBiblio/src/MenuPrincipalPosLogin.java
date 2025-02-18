@@ -1,18 +1,22 @@
 import java.util.*;
 import javax.swing.JOptionPane;
+import java.time.LocalDate;
 public class MenuPrincipalPosLogin extends javax.swing.JFrame {
 
     ArrayList<Livro> livros;
     ArrayList<Exemplar> exemplares;
+    ArrayList<Emprestimo> emprestimos;
     ArrayList<Usuario> usuarios;
-    String livroPesquisaAutor, IDlivroReserva, senhaVerifica;
+    String livroPesquisaAutor, IDUsuarioEmpr, IDEmprestimo, IDEmprVerifica, IDLivroEmpr, IDUsuarioReserva, IDlivroReserva, senhaVerifica;
+    LocalDate dataVencimento;
     /**
      * Creates new form MenuPrincipalPosLogin
      */
-    public MenuPrincipalPosLogin(ArrayList<Livro> livros, ArrayList<Exemplar> exemplares, ArrayList<Usuario> usuarios) {
+    public MenuPrincipalPosLogin(ArrayList<Livro> livros, ArrayList<Exemplar> exemplares, ArrayList<Emprestimo> emprestimos, ArrayList<Usuario> usuarios) {
         initComponents();
         this.livros = livros;
         this.exemplares = exemplares;
+        this.emprestimos = emprestimos;
         this.usuarios = usuarios;
     }
 
@@ -32,6 +36,8 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
         renovarEmprestimoBotao = new javax.swing.JButton();
         pesquisarTituloBotao = new javax.swing.JButton();
         pesqusiarAutorBotao = new javax.swing.JButton();
+        cancelarEmprestimoBotao = new javax.swing.JButton();
+        cancelarReservaBotao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,6 +52,11 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
         });
 
         realizarEmprestimoBotao.setText("Realizar empréstimo");
+        realizarEmprestimoBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                realizarEmprestimoBotaoActionPerformed(evt);
+            }
+        });
 
         reservarLivroBotao.setText("Reservar exemplar");
         reservarLivroBotao.addActionListener(new java.awt.event.ActionListener() {
@@ -75,6 +86,20 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
             }
         });
 
+        cancelarEmprestimoBotao.setText("Cancelar empréstimo");
+        cancelarEmprestimoBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarEmprestimoBotaoActionPerformed(evt);
+            }
+        });
+
+        cancelarReservaBotao.setText("Cancelar reserva");
+        cancelarReservaBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarReservaBotaoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,7 +115,7 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(realizarEmprestimoBotao)
                                 .addGap(174, 174, 174)
-                                .addComponent(pesquisarTituloBotao, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
+                                .addComponent(pesquisarTituloBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(avaliarLivroBotao)
                                 .addGap(0, 0, Short.MAX_VALUE))
@@ -98,7 +123,11 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(renovarEmprestimoBotao)
                                     .addComponent(reservarLivroBotao))
-                                .addGap(171, 171, 171)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cancelarReservaBotao)
+                                    .addComponent(cancelarEmprestimoBotao))
+                                .addGap(78, 78, 78)
                                 .addComponent(pesqusiarAutorBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGap(88, 88, 88))
         );
@@ -114,9 +143,13 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(renovarEmprestimoBotao)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(renovarEmprestimoBotao)
+                            .addComponent(cancelarEmprestimoBotao))
                         .addGap(18, 18, 18)
-                        .addComponent(reservarLivroBotao))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(reservarLivroBotao)
+                            .addComponent(cancelarReservaBotao)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(pesqusiarAutorBotao)))
@@ -147,7 +180,13 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_pesquisarTituloBotaoActionPerformed
 
     private void renovarEmprestimoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_renovarEmprestimoBotaoActionPerformed
-        // TODO add your handling code here:
+        IDEmprVerifica = JOptionPane.showInputDialog(null, "Insira o ID do empréstimo que deseja renovar.");
+        for(int i = 0; i<emprestimos.size(); i++){
+            if(IDEmprVerifica.equals(emprestimos.get(i).getIDEmprestimo())){
+                emprestimos.get(i).setDataNovaVencimento(dataVencimento.plusDays(7));
+                JOptionPane.showMessageDialog(null, "Empréstimo renovado com sucesso!");
+            }
+        }
     }//GEN-LAST:event_renovarEmprestimoBotaoActionPerformed
 
     private void pesqusiarAutorBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesqusiarAutorBotaoActionPerformed
@@ -173,6 +212,8 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
                         for(int y=0; y<livros.get(j).getExemplares().size(); y++){
                             if(!((Exemplar) livros.get(j).getExemplares().get(y)).getReservado()){
                                 ((Exemplar) livros.get(i).getExemplares().get(y)).setReservado(true);
+                                IDUsuarioReserva = usuarios.get(i).getIDUsuario();
+                                ((Exemplar) livros.get(i).getExemplares().get(y)).setIDUsuarioReserva(IDUsuarioReserva);
                                 JOptionPane.showMessageDialog(null, "Reserva realizada com sucesso!");
                             }
                             else{
@@ -188,6 +229,58 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_reservarLivroBotaoActionPerformed
+
+    private void realizarEmprestimoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarEmprestimoBotaoActionPerformed
+        IDLivroEmpr = JOptionPane.showInputDialog(null, "Insira o ID do livro que deseja realizar o empréstimo.");
+        senhaVerifica = JOptionPane.showInputDialog(null, "Insira sua senha: ");
+        for(int i = 0; i<usuarios.size(); i++){
+            for(int j = 0; j<livros.size(); j++){
+                if(senhaVerifica.equals(usuarios.get(i).getSenha())){
+                    if(IDLivroEmpr.equals(livros.get(j).getIDLivro())){
+                        for(int y=0; y<livros.get(j).getExemplares().size(); y++){
+                            if(!((Exemplar) livros.get(j).getExemplares().get(y)).getReservado() && !((Exemplar) livros.get(j).getExemplares().get(y)).getEmprestado()){
+                                ((Exemplar) livros.get(i).getExemplares().get(y)).setEmprestado(true);
+                                IDEmprestimo = JOptionPane.showInputDialog(null, "Insira o ID do empréstimo.");
+                                dataVencimento = LocalDate.now().plusDays(7);
+                                IDUsuarioEmpr = usuarios.get(i).getIDUsuario();
+                                Emprestimo novoEmprestimo = new Emprestimo(dataVencimento, IDEmprestimo, IDUsuarioEmpr);
+                                emprestimos.add(novoEmprestimo);
+                                JOptionPane.showMessageDialog(null, "Empréstimo realizado com sucesso!");
+                            }
+                            else{
+                                JOptionPane.showMessageDialog(null, "Todos os exemplares já estão reservados ou já estão emprestados...!");
+                            }
+                        }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Livro não encontrado no acervo!");
+                    }
+                }
+                else{
+                JOptionPane.showMessageDialog(null, "Senha incorreta!");
+                }
+            }
+        }
+    }//GEN-LAST:event_realizarEmprestimoBotaoActionPerformed
+
+    private void cancelarReservaBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarReservaBotaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancelarReservaBotaoActionPerformed
+
+    private void cancelarEmprestimoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEmprestimoBotaoActionPerformed
+        senhaVerifica = JOptionPane.showInputDialog(null, "Insira a sua senha.");
+        for(int i = 0; i<usuarios.size(); i++){
+            for(int j = 0; i<emprestimos.size(); j++){
+                if(senhaVerifica.equals(usuarios.get(i).getSenha()) && emprestimos.get(j).getIDUsuarioEmpr().equals(usuarios.get(i).getIDUsuario())){
+                    emprestimos.remove(j);
+                    JOptionPane.showMessageDialog(null, "Empréstimo cancelado com sucesso.");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Senha incorreta ou não há empréstimos para serem cancelados.");
+                }
+            }
+        }
+    }//GEN-LAST:event_cancelarEmprestimoBotaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,6 +319,8 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton avaliarLivroBotao;
+    private javax.swing.JButton cancelarEmprestimoBotao;
+    private javax.swing.JButton cancelarReservaBotao;
     private javax.swing.JButton pesquisarTituloBotao;
     private javax.swing.JButton pesqusiarAutorBotao;
     private javax.swing.JButton realizarEmprestimoBotao;

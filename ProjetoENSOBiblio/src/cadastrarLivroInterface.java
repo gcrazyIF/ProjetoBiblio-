@@ -4,16 +4,18 @@ public class cadastrarLivroInterface extends javax.swing.JFrame {
 
     ArrayList<Livro> livros;
     ArrayList<Exemplar> exemplares;
+    ArrayList<Emprestimo> emprestimos;
     ArrayList<Usuario> usuarios;
     String IDLivro, titulo, autor, genero, sinopse;
     int numExemplares, anoPubli;
     /**
      * Creates new form cadastrarLivroInterface
      */
-    public cadastrarLivroInterface(ArrayList<Livro> livros, ArrayList<Exemplar> exemplares, ArrayList<Usuario> usuarios) {
+    public cadastrarLivroInterface(ArrayList<Livro> livros, ArrayList<Exemplar> exemplares, ArrayList<Emprestimo> emprestimos, ArrayList<Usuario> usuarios) {
         initComponents();
         this.livros = livros;
         this.exemplares = exemplares;
+        this.emprestimos = emprestimos;
         this.usuarios = usuarios;
     }
 

@@ -1,6 +1,6 @@
 import java.util.*;
     public class Exemplar {
-        private String IDExemplar;
+        private String IDUsuarioReserva, IDExemplar;
         private int emprestEscolha, reservEscolha;
         private boolean emprestado, reservado;
         Scanner lerExemplar = new Scanner(System.in);
@@ -35,7 +35,11 @@ import java.util.*;
             this.reservado = reservado;
         }
 
-    public String getIDExemplar() {
-        return IDExemplar;
-    }
+        public void setIDUsuarioReserva(String IDUsuarioReserva) {
+            this.IDUsuarioReserva = IDUsuarioReserva;
+        }
+
+        public String getIDExemplar() {
+            return IDExemplar;
+        }
 }

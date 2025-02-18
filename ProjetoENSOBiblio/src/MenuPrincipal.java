@@ -4,6 +4,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     ArrayList<Livro> livros = new ArrayList<Livro>();
     ArrayList<Exemplar> exemplares = new ArrayList<Exemplar>();
+    ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
     ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
     Usuario admin = new Usuario("0", "admin@gmail.com", "admin123", "(82)94002-8922", "ge", "980.567.323-12");
     Sistema sistema = new Sistema();
@@ -226,12 +227,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         for(int i = 0; i<usuarios.size(); i++){
             if (emailVerifica.equalsIgnoreCase(usuarios.get(i).getEmail()) && senhaVerifica.equals(usuarios.get(i).getSenha())) {
                 JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
-                MenuPrincipalPosLogin menuPosLogin = new MenuPrincipalPosLogin(livros, exemplares, usuarios);
+                MenuPrincipalPosLogin menuPosLogin = new MenuPrincipalPosLogin(livros, exemplares, emprestimos, usuarios);
                 menuPosLogin.setVisible(true);
             }
             else if(emailVerifica.equals("admin@gmail.com") && senhaVerifica.equals("admin123")){
                 JOptionPane.showMessageDialog(null, "Login do administrador realizado com sucesso!");
-                MenuPrincipalPosLoginAdmin menuAdmin = new MenuPrincipalPosLoginAdmin(livros, exemplares, usuarios);
+                MenuPrincipalPosLoginAdmin menuAdmin = new MenuPrincipalPosLoginAdmin(livros, exemplares, emprestimos, usuarios);
                 menuAdmin.setVisible(true);
             }
             else{
