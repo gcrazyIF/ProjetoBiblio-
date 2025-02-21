@@ -43,4 +43,16 @@ public class Usuario{
     public String getIDUsuario() {
         return IDUsuario;
     }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCPF() {
+        return CPF;
+    }
 }

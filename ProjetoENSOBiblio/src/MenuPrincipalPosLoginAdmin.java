@@ -1,4 +1,5 @@
 import java.util.*;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
 
@@ -35,86 +36,66 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
         pesquisarGeneroBotao = new javax.swing.JButton();
         cadastrarLivroBotao = new javax.swing.JButton();
         cadastrarExemplarBotao = new javax.swing.JButton();
+        consultarDadosBotao = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tituloInterface.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 48)); // NOI18N
         tituloInterface.setText("Biblio+");
+        getContentPane().add(tituloInterface, new org.netbeans.lib.awtextra.AbsoluteConstraints(1643, 6, -1, -1));
 
-        pesquisarTituloBotao.setText("Pesquisar obra por título");
+        pesquisarTituloBotao.setContentAreaFilled(false);
         pesquisarTituloBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pesquisarTituloBotaoActionPerformed(evt);
             }
         });
+        getContentPane().add(pesquisarTituloBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 290, 50));
 
-        pesquisarAutorBotao.setText("Pesquisar obra por autor");
+        pesquisarAutorBotao.setContentAreaFilled(false);
         pesquisarAutorBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pesquisarAutorBotaoActionPerformed(evt);
             }
         });
+        getContentPane().add(pesquisarAutorBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 290, 40));
 
-        pesquisarGeneroBotao.setText("Pesquisar obra por gênero");
+        pesquisarGeneroBotao.setContentAreaFilled(false);
         pesquisarGeneroBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pesquisarGeneroBotaoActionPerformed(evt);
             }
         });
+        getContentPane().add(pesquisarGeneroBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 290, 40));
 
-        cadastrarLivroBotao.setText("Cadastrar novo livro");
+        cadastrarLivroBotao.setContentAreaFilled(false);
         cadastrarLivroBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastrarLivroBotaoActionPerformed(evt);
             }
         });
+        getContentPane().add(cadastrarLivroBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 280, 40));
 
-        cadastrarExemplarBotao.setText("Cadastrar novo exemplar");
+        cadastrarExemplarBotao.setContentAreaFilled(false);
         cadastrarExemplarBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastrarExemplarBotaoActionPerformed(evt);
             }
         });
+        getContentPane().add(cadastrarExemplarBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 290, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(239, 239, 239)
-                        .addComponent(tituloInterface)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cadastrarExemplarBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cadastrarLivroBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(103, 103, 103)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pesquisarTituloBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pesquisarAutorBotao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pesquisarGeneroBotao, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))))
-                .addGap(88, 88, 88))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tituloInterface)
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pesquisarTituloBotao)
-                    .addComponent(cadastrarLivroBotao))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pesquisarAutorBotao)
-                    .addComponent(cadastrarExemplarBotao))
-                .addGap(18, 18, 18)
-                .addComponent(pesquisarGeneroBotao)
-                .addContainerGap(79, Short.MAX_VALUE))
-        );
+        consultarDadosBotao.setContentAreaFilled(false);
+        consultarDadosBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarDadosBotaoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(consultarDadosBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 273, 280, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenuAdmin(1400 x 1200 px) (1400 x 1000 px) (1).png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -154,6 +135,14 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pesquisarGeneroBotaoActionPerformed
 
+    private void consultarDadosBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarDadosBotaoActionPerformed
+        consultarInterface consultaTabs = new consultarInterface();
+        JFrame consultaTabsFrame = new JFrame();
+        consultaTabsFrame.setSize(700, 500);
+        consultaTabsFrame.add(consultaTabs);
+        consultaTabsFrame.setVisible(true);
+    }//GEN-LAST:event_consultarDadosBotaoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -192,6 +181,8 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cadastrarExemplarBotao;
     private javax.swing.JButton cadastrarLivroBotao;
+    private javax.swing.JButton consultarDadosBotao;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton pesquisarAutorBotao;
     private javax.swing.JButton pesquisarGeneroBotao;
     private javax.swing.JButton pesquisarTituloBotao;

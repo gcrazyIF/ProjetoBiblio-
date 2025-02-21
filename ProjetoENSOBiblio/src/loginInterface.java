@@ -30,69 +30,40 @@ public class loginInterface extends javax.swing.JPanel {
     private void initComponents() {
 
         campoEmail = new javax.swing.JTextField();
-        emailTexto = new javax.swing.JLabel();
         campoSenha = new javax.swing.JPasswordField();
-        senhaTexto = new javax.swing.JLabel();
         logarBotao = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         campoEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoEmailActionPerformed(evt);
             }
         });
+        add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 170, 50));
 
-        emailTexto.setText("E-mail:");
+        campoSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoSenhaActionPerformed(evt);
+            }
+        });
+        add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 252, 170, 50));
 
-        senhaTexto.setText("Senha:");
-
-        logarBotao.setText("Logar");
+        logarBotao.setContentAreaFilled(false);
         logarBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logarBotaoActionPerformed(evt);
             }
         });
+        add(logarBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 343, 160, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(193, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(senhaTexto)
-                                .addGap(18, 18, 18)
-                                .addComponent(campoSenha))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(emailTexto)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(184, 184, 184))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(logarBotao)
-                        .addGap(234, 234, 234))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(emailTexto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(senhaTexto)
-                    .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(logarBotao)
-                .addContainerGap(148, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Login(1400 x 1200 px).png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void campoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEmailActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_campoEmailActionPerformed
 
     private void logarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logarBotaoActionPerformed
@@ -115,12 +86,15 @@ public class loginInterface extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_logarBotaoActionPerformed
 
+    private void campoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoSenhaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campoEmail;
     private javax.swing.JPasswordField campoSenha;
-    private javax.swing.JLabel emailTexto;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton logarBotao;
-    private javax.swing.JLabel senhaTexto;
     // End of variables declaration//GEN-END:variables
 }

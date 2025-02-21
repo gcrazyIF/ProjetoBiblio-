@@ -1,6 +1,7 @@
 import java.util.*;
 import javax.swing.JOptionPane;
 import java.time.LocalDate;
+import javax.swing.JFrame;
 public class MenuPrincipalPosLogin extends javax.swing.JFrame {
 
     ArrayList<Livro> livros;
@@ -9,7 +10,7 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
     ArrayList<Usuario> usuarios;
     ArrayList<Avaliacao> avaliacoes;
     String livroPesquisaAutor, livroPesquisaTitulo, livroPesquisaGenero;
-    String IDUsuarioEmpr, IDEmprestimo, IDEmprVerifica, IDLivroEmpr, IDUsuarioReserva, IDlivroReserva, senhaVerifica;
+    String IDUsuarioEmpr, IDEmprestimo, IDEmprVerifica, IDLivroEmpr, IDUsuarioReserva, IDReserva, IDlivroReserva, senhaVerifica;
     LocalDate dataVencimento;
     /**
      * Creates new form MenuPrincipalPosLogin
@@ -42,148 +43,113 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
         cancelarEmprestimoBotao = new javax.swing.JButton();
         cancelarReservaBotao = new javax.swing.JButton();
         pesquisarGeneroBotao = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tituloInterface.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 48)); // NOI18N
         tituloInterface.setText("Biblio+");
+        getContentPane().add(tituloInterface, new org.netbeans.lib.awtextra.AbsoluteConstraints(1643, 6, -1, -1));
 
-        avaliarLivroBotao.setText("Avaliar livro");
+        avaliarLivroBotao.setContentAreaFilled(false);
         avaliarLivroBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 avaliarLivroBotaoActionPerformed(evt);
             }
         });
+        getContentPane().add(avaliarLivroBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 280, 40));
 
-        realizarEmprestimoBotao.setText("Realizar empréstimo");
+        realizarEmprestimoBotao.setContentAreaFilled(false);
         realizarEmprestimoBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 realizarEmprestimoBotaoActionPerformed(evt);
             }
         });
+        getContentPane().add(realizarEmprestimoBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 280, 40));
 
-        reservarLivroBotao.setText("Reservar exemplar");
+        reservarLivroBotao.setContentAreaFilled(false);
         reservarLivroBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reservarLivroBotaoActionPerformed(evt);
             }
         });
+        getContentPane().add(reservarLivroBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 280, 40));
 
-        renovarEmprestimoBotao.setText("Renovar empréstimo");
+        renovarEmprestimoBotao.setContentAreaFilled(false);
         renovarEmprestimoBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 renovarEmprestimoBotaoActionPerformed(evt);
             }
         });
+        getContentPane().add(renovarEmprestimoBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 280, 40));
 
-        pesquisarTituloBotao.setText("Pesquisar obra por título");
+        pesquisarTituloBotao.setContentAreaFilled(false);
         pesquisarTituloBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pesquisarTituloBotaoActionPerformed(evt);
             }
         });
+        getContentPane().add(pesquisarTituloBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 280, 40));
 
-        pesquisarAutorBotao.setText("Pesquisar obra por autor");
+        pesquisarAutorBotao.setContentAreaFilled(false);
         pesquisarAutorBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pesquisarAutorBotaoActionPerformed(evt);
             }
         });
+        getContentPane().add(pesquisarAutorBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 280, 40));
 
-        cancelarEmprestimoBotao.setText("Cancelar empréstimo");
+        cancelarEmprestimoBotao.setContentAreaFilled(false);
         cancelarEmprestimoBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarEmprestimoBotaoActionPerformed(evt);
             }
         });
+        getContentPane().add(cancelarEmprestimoBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 290, 50));
 
-        cancelarReservaBotao.setText("Cancelar reserva");
+        cancelarReservaBotao.setContentAreaFilled(false);
         cancelarReservaBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarReservaBotaoActionPerformed(evt);
             }
         });
+        getContentPane().add(cancelarReservaBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, 290, 50));
 
-        pesquisarGeneroBotao.setText("Pesquisar obra por gênero");
+        pesquisarGeneroBotao.setContentAreaFilled(false);
         pesquisarGeneroBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pesquisarGeneroBotaoActionPerformed(evt);
             }
         });
+        getContentPane().add(pesquisarGeneroBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 280, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(avaliarLivroBotao)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(renovarEmprestimoBotao)
-                            .addComponent(reservarLivroBotao))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cancelarReservaBotao)
-                            .addComponent(cancelarEmprestimoBotao)))
-                    .addComponent(realizarEmprestimoBotao))
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pesquisarAutorBotao, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                    .addComponent(pesquisarGeneroBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pesquisarTituloBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(96, 96, 96))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(239, 239, 239)
-                .addComponent(tituloInterface)
-                .addGap(71, 71, 71))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tituloInterface)
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(realizarEmprestimoBotao)
-                    .addComponent(pesquisarTituloBotao))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(renovarEmprestimoBotao)
-                            .addComponent(cancelarEmprestimoBotao))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(reservarLivroBotao)
-                            .addComponent(cancelarReservaBotao)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(pesquisarGeneroBotao)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(avaliarLivroBotao)
-                    .addComponent(pesquisarAutorBotao))
-                .addContainerGap(73, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenuPosLogin.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void avaliarLivroBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avaliarLivroBotaoActionPerformed
         avaliacaoLivroInterface avaliaInterface = new avaliacaoLivroInterface(livros, exemplares, emprestimos, usuarios, avaliacoes);
+        JFrame avaliaFrame = new JFrame();
+        avaliaFrame.setSize(700, 500);
+        avaliaFrame.add(avaliaInterface);
+        avaliaFrame.setVisible(true);
     }//GEN-LAST:event_avaliarLivroBotaoActionPerformed
 
     private void pesquisarTituloBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarTituloBotaoActionPerformed
         livroPesquisaTitulo = JOptionPane.showInputDialog(null, "Insira o título que deseja pesquisar.");
         for (int i = 0; i < livros.size(); i++) {
-            if (livroPesquisaTitulo.equalsIgnoreCase(livros.get(i).getTitulo())) {
-                JOptionPane.showMessageDialog(null, "Livro presente no acervo!");
-                livros.get(i).exibirLivro();
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "Livro não encontrado no acervo!");
+            if (livros.get(i)!=null){
+                if (livroPesquisaTitulo.equalsIgnoreCase(livros.get(i).getTitulo())) {
+                    JOptionPane.showMessageDialog(null, "Livro presente no acervo!");
+                    JOptionPane.showMessageDialog(null, "Título da obra: "+livros.get(i).getTitulo()+"\n"
+                                    + "Autor da obra: "+livros.get(i).getAutor()+"\nGênero: "+livros.get(i).getGenero()+"\nAno de publicação: "+livros.get(i).getAnoPubli()+"\nSinopse: "+livros.get(i).getSinopse()+"\nNúmero de exemplares no acervo: "+livros.get(i).getNumExemplares());
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Livro não encontrado no acervo!");
+                }
             }
         }
     }//GEN-LAST:event_pesquisarTituloBotaoActionPerformed
@@ -195,23 +161,30 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
                 emprestimos.get(i).setDataNovaVencimento(dataVencimento.plusDays(7));
                 JOptionPane.showMessageDialog(null, "Empréstimo renovado com sucesso!");
             }
+            else{
+                JOptionPane.showMessageDialog(null, "Não há empréstimos a serem renovados...");
+            }
         }
     }//GEN-LAST:event_renovarEmprestimoBotaoActionPerformed
 
     private void pesquisarAutorBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarAutorBotaoActionPerformed
-
         livroPesquisaAutor = JOptionPane.showInputDialog(null, "Insira o autor que deseja pesquisar.");
         for (int i = 0; i < livros.size(); i++) {
-            if (livroPesquisaAutor.equalsIgnoreCase(livros.get(i).getAutor())) {
-                System.out.println(livros.get(i).getTitulo());
-                JOptionPane.showMessageDialog(null, "Autor presente no acervo!");
-                livros.get(i).exibirLivro();
+            if (livros.get(i)!=null){
+                if (livroPesquisaAutor.equalsIgnoreCase(livros.get(i).getAutor())) {
+                    System.out.println(livros.get(i).getTitulo());
+                    JOptionPane.showMessageDialog(null, "Autor presente no acervo!");
+                    JOptionPane.showMessageDialog(null, "Título da obra: "+livros.get(i).getTitulo()+"\n"
+                                    + "Autor da obra: "+livros.get(i).getAutor()+"\nGênero: "+livros.get(i).getGenero()+"\nAno de publicação: "+livros.get(i).getAnoPubli()+"\nSinopse: "+livros.get(i).getSinopse()+"\nNúmero de exemplares no acervo: "+livros.get(i).getNumExemplares());
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Autor não encontrado no acervo!");
+                }
             }
         }
     }//GEN-LAST:event_pesquisarAutorBotaoActionPerformed
 
     private void reservarLivroBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservarLivroBotaoActionPerformed
-
         IDlivroReserva = JOptionPane.showInputDialog(null, "Insira o ID do livro que deseja realizar a reserva.");
         senhaVerifica = JOptionPane.showInputDialog(null, "Insira sua senha: ");
         for(int i = 0; i<usuarios.size(); i++){
@@ -223,6 +196,8 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
                                 ((Exemplar) livros.get(i).getExemplares().get(y)).setReservado(true);
                                 IDUsuarioReserva = usuarios.get(i).getIDUsuario();
                                 ((Exemplar) livros.get(i).getExemplares().get(y)).setIDUsuarioReserva(IDUsuarioReserva);
+                                IDReserva = JOptionPane.showInputDialog(null, "Insira o ID da reserva.");
+                                exemplares.get(y).setIDReserva(IDReserva);
                                 JOptionPane.showMessageDialog(null, "Reserva realizada com sucesso!");
                             }
                             else{
@@ -247,14 +222,14 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
                 if(senhaVerifica.equals(usuarios.get(i).getSenha())){
                     if(IDLivroEmpr.equals(livros.get(j).getIDLivro())){
                         for(int y=0; y<livros.get(j).getExemplares().size(); y++){
-                            if(!((Exemplar) livros.get(j).getExemplares().get(y)).getReservado() && !((Exemplar) livros.get(j).getExemplares().get(y)).getEmprestado()){
-                                ((Exemplar) livros.get(i).getExemplares().get(y)).setEmprestado(true);
+                            if((livros.get(j).getExemplares().get(y)).getReservado() == false && (livros.get(j).getExemplares().get(y)).getEmprestado() == false){
                                 IDEmprestimo = JOptionPane.showInputDialog(null, "Insira o ID do empréstimo.");
                                 dataVencimento = LocalDate.now().plusDays(7);
                                 IDUsuarioEmpr = usuarios.get(i).getIDUsuario();
                                 Emprestimo novoEmprestimo = new Emprestimo(dataVencimento, IDEmprestimo, IDUsuarioEmpr);
                                 emprestimos.add(novoEmprestimo);
                                 JOptionPane.showMessageDialog(null, "Empréstimo realizado com sucesso!");
+                                ((Exemplar) livros.get(i).getExemplares().get(y)).setEmprestado(true);
                             }
                             else{
                                 JOptionPane.showMessageDialog(null, "Todos os exemplares já estão reservados ou já estão emprestados...!");
@@ -273,19 +248,32 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_realizarEmprestimoBotaoActionPerformed
 
     private void cancelarReservaBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarReservaBotaoActionPerformed
-        // TODO add your handling code here:
+        senhaVerifica = JOptionPane.showInputDialog(null, "Insira a sua senha.");
+        IDReserva = JOptionPane.showInputDialog(null, "Insira o ID da reserva que deseja cancelar."); 
+        for(int i = 0; i<usuarios.size(); i++){
+            for(int y = 0; y<livros.size(); y++){
+                for(int j = 0; j<livros.get(y).getExemplares().size(); j++){
+                    if(senhaVerifica.equals(usuarios.get(i).getSenha()) && IDReserva.equals(livros.get(y).getExemplares().get(j).getIDReserva())){
+                        livros.get(y).getExemplares().get(j).setReservado(false);
+                        JOptionPane.showMessageDialog(null, "Reserva cancelada com sucesso.");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Senha incorreta ou não há reservas para serem canceladas.");
+                    }
+                }
+            }
+        }
     }//GEN-LAST:event_cancelarReservaBotaoActionPerformed
 
     private void cancelarEmprestimoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEmprestimoBotaoActionPerformed
         senhaVerifica = JOptionPane.showInputDialog(null, "Insira a sua senha.");
+        IDEmprestimo = JOptionPane.showInputDialog(null, "Insira o ID do empréstimo que deseja cancelar."); 
         for(int i = 0; i<usuarios.size(); i++){
-            for(int j = 0; i<emprestimos.size(); j++){
-                if(senhaVerifica.equals(usuarios.get(i).getSenha()) && emprestimos.get(j).getIDUsuarioEmpr().equals(usuarios.get(i).getIDUsuario())){
+            for(int j = 0; j<emprestimos.size(); j++){
+                if(senhaVerifica.equals(usuarios.get(i).getSenha()) && IDEmprestimo.equals(emprestimos.get(j).getIDEmprestimo())){
                     for(int y = 0; y<livros.size(); y++){
-                        for(int l = 0; l<livros.get(y).getExemplares().size(); l++){
-                            livros.get(y).getExemplares().get(l).setEmprestado(false);
-                            JOptionPane.showMessageDialog(null, "Empréstimo cancelado com sucesso.");
-                        }
+                        livros.get(y).getExemplares().get(j).setReservado(false);
+                        JOptionPane.showMessageDialog(null, "Empréstimo cancelado com sucesso.");
                     }
                 }
                 else{
@@ -298,12 +286,15 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
     private void pesquisarGeneroBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarGeneroBotaoActionPerformed
         livroPesquisaGenero = JOptionPane.showInputDialog(null, "Insira o gênero literário que deseja pesquisar.");
         for (int i = 0; i < livros.size(); i++) {
-            if (livroPesquisaTitulo.equalsIgnoreCase(livros.get(i).getGenero())) {
-                JOptionPane.showMessageDialog(null, "Gênero literário presente no acervo!");
-                livros.get(i).exibirLivro();
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "GÊnero literário não encontrado no acervo!");
+            if (livros.get(i)!=null){
+                if (livroPesquisaGenero.equalsIgnoreCase(livros.get(i).getGenero())) {
+                    JOptionPane.showMessageDialog(null, "Gênero literário presente no acervo!");
+                    JOptionPane.showMessageDialog(null, "Título da obra: "+livros.get(i).getTitulo()+"\n"
+                                    + "Autor da obra: "+livros.get(i).getAutor()+"\nGênero: "+livros.get(i).getGenero()+"\nAno de publicação: "+livros.get(i).getAnoPubli()+"\nSinopse: "+livros.get(i).getSinopse()+"\nNúmero de exemplares no acervo: "+livros.get(i).getNumExemplares());
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "GÊnero literário não encontrado no acervo!");
+                }
             }
         }
     }//GEN-LAST:event_pesquisarGeneroBotaoActionPerformed
@@ -347,6 +338,7 @@ public class MenuPrincipalPosLogin extends javax.swing.JFrame {
     private javax.swing.JButton avaliarLivroBotao;
     private javax.swing.JButton cancelarEmprestimoBotao;
     private javax.swing.JButton cancelarReservaBotao;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton pesquisarAutorBotao;
     private javax.swing.JButton pesquisarGeneroBotao;
     private javax.swing.JButton pesquisarTituloBotao;

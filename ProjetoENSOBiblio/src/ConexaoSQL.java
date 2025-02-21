@@ -2,9 +2,9 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 public class ConexaoSQL {
     static Connection connection = null;
-    String url = "";
-    String user = "";
-    String password = "";
+    String url = "jdbc:mysql://localhost:3306/bancorestaurante";
+    String user = "root";
+    String password = "ge81701081BCDD24";
     
     public ConexaoSQL(){
         try{

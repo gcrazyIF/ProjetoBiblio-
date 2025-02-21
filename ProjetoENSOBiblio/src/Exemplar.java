@@ -1,19 +1,25 @@
 import java.util.*;
     public class Exemplar {
-        private String IDUsuarioReserva, IDExemplar;
-        private int emprestEscolha, reservEscolha;
+        private String IDUsuarioReserva, IDExemplar, IDReserva;
         private boolean emprestado, reservado;
         Scanner lerExemplar = new Scanner(System.in);
        
         public Exemplar(){
             System.out.println("Insira o ID do exemplar: ");
             IDExemplar = lerExemplar.next();
+            IDExemplar = lerExemplar.next();
             
             emprestado = false;
             reservado = false;
         }
-        
+        // Parâmetro: String IDLivro, String titulo, String autor, String genero, String sinopse, int numExemplares, int anoPubli
         public Exemplar(String IDLivro, String titulo, String autor, String genero, String sinopse, int numExemplares, int anoPubli, String IDExemplar, boolean emprestado, boolean reservado) {
+            this.IDExemplar = IDExemplar;
+            this.emprestado = emprestado;
+            this.reservado = reservado;
+        }
+
+        public Exemplar(String IDExemplar, boolean emprestado, boolean reservado) {
             this.IDExemplar = IDExemplar;
             this.emprestado = emprestado;
             this.reservado = reservado;
@@ -42,4 +48,16 @@ import java.util.*;
         public String getIDExemplar() {
             return IDExemplar;
         }
+
+        public String getIDUsuarioReserva() {
+            return IDUsuarioReserva;
+        }
+
+        public void setIDReserva(String IDReserva) {
+            this.IDReserva = IDReserva;
+        }
+
+        public String getIDReserva() {
+            return IDReserva;
+        } 
 }

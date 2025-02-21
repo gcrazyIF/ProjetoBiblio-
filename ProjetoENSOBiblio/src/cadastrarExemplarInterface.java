@@ -33,6 +33,7 @@ public class cadastrarExemplarInterface extends javax.swing.JFrame {
         IDLivrroExTexto = new javax.swing.JLabel();
         campoIDLivro = new javax.swing.JTextField();
         botaoCadastroExem = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,6 +50,8 @@ public class cadastrarExemplarInterface extends javax.swing.JFrame {
                 botaoCadastroExemActionPerformed(evt);
             }
         });
+
+        jLabel1.setText("interfaceGUI");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,18 +71,23 @@ public class cadastrarExemplarInterface extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(234, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(tituloInterface)
-                        .addGap(242, 242, 242))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(botaoCadastroExem)
-                        .addGap(265, 265, 265))))
+                .addComponent(botaoCadastroExem)
+                .addGap(265, 265, 265))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tituloInterface)
+                .addGap(242, 242, 242))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(tituloInterface)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tituloInterface)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel1)))
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IDLivrroExTexto)
@@ -101,7 +109,7 @@ public class cadastrarExemplarInterface extends javax.swing.JFrame {
         IDExemplar = campoIDExemplar.getText();
         for(int x = 0; x<livros.size(); x++){
             if(IDLivroExemplar.equalsIgnoreCase(livros.get(x).getIDLivro())){
-                Exemplar novoExemplar = new Exemplar();
+                Exemplar novoExemplar = new Exemplar(IDExemplar, false, false);
                 livros.get(x).getExemplares().add(novoExemplar);
                 for(int m = 0; m<livros.get(x).getExemplares().size(); m++){
                     System.out.println("Exemplares existentes: "+livros.get(x).getExemplares().get(m).getIDExemplar());
@@ -154,6 +162,7 @@ public class cadastrarExemplarInterface extends javax.swing.JFrame {
     private javax.swing.JButton botaoCadastroExem;
     private javax.swing.JTextField campoIDExemplar;
     private javax.swing.JTextField campoIDLivro;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel tituloInterface;
     // End of variables declaration//GEN-END:variables
 }

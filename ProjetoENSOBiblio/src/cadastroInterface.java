@@ -29,44 +29,38 @@ public class cadastroInterface extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        idUsuTexto = new javax.swing.JLabel();
         cadastrarBotao = new javax.swing.JButton();
-        nomeUsuTexto = new javax.swing.JLabel();
-        emailTexto = new javax.swing.JLabel();
-        telefoneTexto = new javax.swing.JLabel();
-        CPFTexto = new javax.swing.JLabel();
-        senhaTexto = new javax.swing.JLabel();
         campoNome = new javax.swing.JTextField();
         campoEmail = new javax.swing.JTextField();
         campoCPF = new javax.swing.JFormattedTextField();
         campoNumero = new javax.swing.JFormattedTextField();
         campoIDUsuario = new javax.swing.JTextField();
         campoSenha = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
 
-        idUsuTexto.setText("ID de usuário:");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cadastrarBotao.setText("Cadastrar usuário");
+        cadastrarBotao.setContentAreaFilled(false);
         cadastrarBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastrarBotaoActionPerformed(evt);
             }
         });
-
-        nomeUsuTexto.setText("Nome:");
-
-        emailTexto.setText("E-mail:");
-
-        telefoneTexto.setText("Telefone:");
-
-        CPFTexto.setText("CPF:");
-
-        senhaTexto.setText("Senha:");
+        add(cadastrarBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 120, 40));
 
         campoNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoNomeActionPerformed(evt);
             }
         });
+        add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 230, 30));
+
+        campoEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoEmailActionPerformed(evt);
+            }
+        });
+        add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 230, 30));
 
         try {
             campoCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -74,82 +68,19 @@ public class cadastroInterface extends javax.swing.JPanel {
             ex.printStackTrace();
         }
         campoCPF.setToolTipText("");
+        add(campoCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 220, 30));
 
         try {
             campoNumero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("+55 (##) #####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        add(campoNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 230, 40));
+        add(campoIDUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 240, 30));
+        add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 322, 230, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(nomeUsuTexto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(idUsuTexto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(campoIDUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(emailTexto)
-                        .addGap(78, 78, 78)
-                        .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CPFTexto)
-                            .addComponent(senhaTexto))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(campoCPF)
-                            .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(telefoneTexto)
-                        .addGap(67, 67, 67)
-                        .addComponent(campoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(163, 163, 163))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(213, 213, 213)
-                .addComponent(cadastrarBotao)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoIDUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idUsuTexto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nomeUsuTexto))
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(emailTexto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telefoneTexto)
-                    .addComponent(campoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CPFTexto)
-                    .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(senhaTexto)
-                    .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(cadastrarBotao)
-                .addGap(62, 62, 62))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cadastro.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastrarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarBotaoActionPerformed
@@ -168,9 +99,12 @@ public class cadastroInterface extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNomeActionPerformed
 
+    private void campoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoEmailActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel CPFTexto;
     private javax.swing.JButton cadastrarBotao;
     private javax.swing.JFormattedTextField campoCPF;
     private javax.swing.JTextField campoEmail;
@@ -178,10 +112,6 @@ public class cadastroInterface extends javax.swing.JPanel {
     private javax.swing.JTextField campoNome;
     private javax.swing.JFormattedTextField campoNumero;
     private javax.swing.JPasswordField campoSenha;
-    private javax.swing.JLabel emailTexto;
-    private javax.swing.JLabel idUsuTexto;
-    private javax.swing.JLabel nomeUsuTexto;
-    private javax.swing.JLabel senhaTexto;
-    private javax.swing.JLabel telefoneTexto;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
