@@ -2,7 +2,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 public class ConexaoSQL {
     static Connection connection = null;
-    String url = "jdbc:mysql://localhost:3306/bancorestaurante";
+    String url = "jdbc:mysql://localhost:3306/biblioteca";
     String user = "root";
     String password = "ge81701081BCDD24";
     

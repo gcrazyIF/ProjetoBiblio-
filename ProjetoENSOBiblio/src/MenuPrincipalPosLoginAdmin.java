@@ -8,6 +8,9 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
     ArrayList<Emprestimo> emprestimos;
     ArrayList<Usuario> usuarios;
     ArrayList<Avaliacao> avaliacoes;
+    UsuarioDAO usuarioConsultar;
+    LivroDAO livroConsultar;
+    ExemplarDAO exemplarConsultar;
     String  livroPesquisaTitulo, livroPesquisaAutor, livroPesquisaGenero;
     /**
      * Creates new form MenuPrincipalPosLogin
@@ -136,7 +139,7 @@ public class MenuPrincipalPosLoginAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_pesquisarGeneroBotaoActionPerformed
 
     private void consultarDadosBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarDadosBotaoActionPerformed
-        consultarInterface consultaTabs = new consultarInterface();
+        consultarInterface consultaTabs = new consultarInterface(usuarioConsultar, livroConsultar, exemplarConsultar);
         JFrame consultaTabsFrame = new JFrame();
         consultaTabsFrame.setSize(700, 500);
         consultaTabsFrame.add(consultaTabs);

@@ -11,7 +11,7 @@ public class LivroDAO {
     //Remover os dados de uma pessoa no MySQL
     public void removerLivro(String IDLivro){
         try{
-            String sql = "delete from Avaliacao where id = ?";
+            String sql = "delete from Livro where id = ?";
             PreparedStatement ps = conexao.prepareStatement(sql);
             ps.setString(1, IDLivro); 
            

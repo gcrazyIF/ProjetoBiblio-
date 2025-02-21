@@ -117,6 +117,8 @@ public class cadastrarLivroInterface extends javax.swing.JFrame {
             Exemplar novoExemplar = new Exemplar();
             livroNovo.getExemplares().add(novoExemplar);
         }
+        LivroDAO livroConsultar = new LivroDAO();
+        livroConsultar.inserirLivro(livroNovo);
     }//GEN-LAST:event_cadastrarLivroBotaoInterfaceActionPerformed
 
     private void campoAnoPubliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoAnoPubliActionPerformed

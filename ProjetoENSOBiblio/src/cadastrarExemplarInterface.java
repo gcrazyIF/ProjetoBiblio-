@@ -111,6 +111,8 @@ public class cadastrarExemplarInterface extends javax.swing.JFrame {
             if(IDLivroExemplar.equalsIgnoreCase(livros.get(x).getIDLivro())){
                 Exemplar novoExemplar = new Exemplar(IDExemplar, false, false);
                 livros.get(x).getExemplares().add(novoExemplar);
+                ExemplarDAO exemplarConsultar = new ExemplarDAO();
+                exemplarConsultar.inserirExemplar(novoExemplar);
                 for(int m = 0; m<livros.get(x).getExemplares().size(); m++){
                     System.out.println("Exemplares existentes: "+livros.get(x).getExemplares().get(m).getIDExemplar());
                 }

@@ -9,11 +9,17 @@
  */
 public class consultarInterface extends javax.swing.JPanel {
 
+    UsuarioDAO usuarioConsultar;
+    LivroDAO livroConsultar;
+    ExemplarDAO exemplarConsultar;
     /**
      * Creates new form consultarInterface
      */
-    public consultarInterface() {
+    public consultarInterface(UsuarioDAO usuarioConsultar, LivroDAO livroConsultar, ExemplarDAO exemplarConsultar) {
         initComponents();
+        this.usuarioConsultar = usuarioConsultar;
+        this.livroConsultar = livroConsultar;
+        this.exemplarConsultar = exemplarConsultar;
     }
 
     /**
@@ -107,17 +113,14 @@ public class consultarInterface extends javax.swing.JPanel {
     }//GEN-LAST:event_consultarEmprBotaoActionPerformed
 
     private void consultarUsuariosBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarUsuariosBotaoActionPerformed
-        UsuarioDAO usuarioConsultar = new UsuarioDAO();
         usuarioConsultar.consultarTudo();
     }//GEN-LAST:event_consultarUsuariosBotaoActionPerformed
 
     private void consultarLivrosBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarLivrosBotaoActionPerformed
-        LivroDAO livroConsultar = new LivroDAO();
         livroConsultar.consultarTudo();
     }//GEN-LAST:event_consultarLivrosBotaoActionPerformed
 
     private void consultarExemplaresBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarExemplaresBotaoActionPerformed
-        ExemplarDAO exemplarConsultar = new ExemplarDAO();
         exemplarConsultar.consultarTudo();
     }//GEN-LAST:event_consultarExemplaresBotaoActionPerformed
 
